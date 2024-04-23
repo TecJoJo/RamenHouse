@@ -7,7 +7,7 @@ namespace ramenHouse.Models
         {
             public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-            public DbSet<User> Customers { get; set; }
+            public DbSet<User> Users { get; set; }
             
 
 
