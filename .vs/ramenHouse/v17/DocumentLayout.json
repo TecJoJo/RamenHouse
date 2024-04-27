@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,6 +17,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\views\\authentication\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\views\\authentication\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\wwwroot\\mytailwind.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\wwwroot\\mytailwind.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\tailwind.extension.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\tailwind.extension.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\wwwroot\\tailwindinput.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\wwwroot\\tailwindinput.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\tailwind.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\tailwind.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\attributes\\emailexisistattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\attributes\\emailexisistattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|solutionrelative:ramenhouse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{342A6957-6421-4C31-870A-12F7005BC1C1}|ramenHouse\\ramenHouse.csproj|c:\\users\\yaolu\\source\\repos\\ramenhouse\\ramenhouse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -66,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 191,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -80,7 +96,7 @@
               "RelativeDocumentMoniker": "ramenHouse\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ramenHouse\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-27T19:39:49.772Z",
               "EditorCaption": ""
@@ -93,14 +109,14 @@
               "RelativeDocumentMoniker": "ramenHouse\\Views\\Authentication\\Index.cshtml",
               "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Views\\Authentication\\Index.cshtml",
               "RelativeToolTip": "ramenHouse\\Views\\Authentication\\Index.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-23T10:49:30.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Controllers\\AuthenticationController.cs",
@@ -108,12 +124,11 @@
               "RelativeToolTip": "ramenHouse\\Controllers\\AuthenticationController.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAAACEAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T07:30:43.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T07:30:43.67Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "UserViewModel.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\ViewModels\\UserViewModel.cs",
               "RelativeDocumentMoniker": "ramenHouse\\ViewModels\\UserViewModel.cs",
@@ -121,24 +136,24 @@
               "RelativeToolTip": "ramenHouse\\ViewModels\\UserViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T07:49:58.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T07:49:58.077Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Program.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Program.cs",
               "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Program.cs",
               "RelativeToolTip": "ramenHouse\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAUwC0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T07:16:46.268Z"
+              "WhenOpened": "2024-04-23T07:16:46.268Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "PasswordVerificationAttribute.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Attributes\\PasswordVerificationAttribute.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Attributes\\PasswordVerificationAttribute.cs",
@@ -146,12 +161,11 @@
               "RelativeToolTip": "ramenHouse\\Attributes\\PasswordVerificationAttribute.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T21:02:52.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T21:02:52.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Data\\Role.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Data\\Role.cs",
@@ -163,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\appsettings.json",
               "RelativeDocumentMoniker": "ramenHouse\\appsettings.json",
@@ -175,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Controllers\\HomeController.cs",
@@ -187,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Plan.md",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Plan.md",
               "RelativeDocumentMoniker": "ramenHouse\\Plan.md",
@@ -201,7 +215,7 @@
         },
         {
           "DockedWidth": 209,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -221,20 +235,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "myTailwind.css",
+              "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\wwwroot\\myTailwind.css",
+              "RelativeDocumentMoniker": "ramenHouse\\wwwroot\\myTailwind.css",
+              "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\wwwroot\\myTailwind.css",
+              "RelativeToolTip": "ramenHouse\\wwwroot\\myTailwind.css",
+              "ViewState": "AQIAALoJAAAAAAAAAAAuwNoJAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-27T20:42:40.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "tailwindInput.css",
+              "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\wwwroot\\tailwindInput.css",
+              "RelativeDocumentMoniker": "ramenHouse\\wwwroot\\tailwindInput.css",
+              "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\wwwroot\\tailwindInput.css",
+              "RelativeToolTip": "ramenHouse\\wwwroot\\tailwindInput.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-27T20:39:45.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "tailwind.extension.json",
+              "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\tailwind.extension.json",
+              "RelativeDocumentMoniker": "ramenHouse\\tailwind.extension.json",
+              "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\tailwind.extension.json",
+              "RelativeToolTip": "ramenHouse\\tailwind.extension.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAACPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-27T20:33:53.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "tailwind.config.js",
+              "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\tailwind.config.js",
+              "RelativeDocumentMoniker": "ramenHouse\\tailwind.config.js",
+              "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\tailwind.config.js",
+              "RelativeToolTip": "ramenHouse\\tailwind.config.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-04-27T20:33:47.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ramenHouse\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ramenHouse\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-27T20:17:39.634Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "EmailExisistAttribute.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Attributes\\EmailExisistAttribute.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Attributes\\EmailExisistAttribute.cs",
@@ -242,12 +308,11 @@
               "RelativeToolTip": "ramenHouse\\Attributes\\EmailExisistAttribute.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:22:01.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:22:01.267Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Models\\User.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Models\\User.cs",
@@ -259,7 +324,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\yaolu\\source\\repos\\ramenHouse\\ramenHouse\\Models\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "ramenHouse\\Models\\ApplicationDbContext.cs",
@@ -267,8 +332,7 @@
               "RelativeToolTip": "ramenHouse\\Models\\ApplicationDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:23:19.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:23:19.511Z"
             }
           ]
         }
