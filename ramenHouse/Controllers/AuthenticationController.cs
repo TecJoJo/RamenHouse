@@ -32,11 +32,10 @@ namespace ramenHouse.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserViewModel loginForm)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
-                //add an model level error 
-                ModelState.AddModelError("", "Invalid email or password");
+
                 //Find User 
 
                 User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
@@ -44,14 +43,13 @@ namespace ramenHouse.Controllers
                 if (user != null)
                 {
                     //we verify the password and log the user in 
-                    if (user.Password == loginForm.Password)
-                    {
-                        //user's role 
 
-                        string RoleName = Enum.GetName(typeof(Role), user.Role)!;
+                    //user's role 
 
-                        //we create cookies  
-                        var claims = new List<Claim>()
+                    string RoleName = Enum.GetName(typeof(Role), user.Role)!;
+
+                    //we create cookies  
+                    var claims = new List<Claim>()
                     {
                         new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                         new Claim(ClaimTypes.Role,RoleName),
@@ -59,30 +57,27 @@ namespace ramenHouse.Controllers
                     };
 
 
-                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                        var authProperties = new AuthenticationProperties
-                        {
-                            AllowRefresh = true,
-                            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
-                            IsPersistent = true,
-                        };
-
-                        //we sign in the user 
-
-                        await HttpContext.SignInAsync(
-                        CookieAuthenticationDefaults.AuthenticationScheme,
-                        new ClaimsPrincipal(claimsIdentity),
-                        authProperties
-                        );
-
-                        return RedirectToAction("Index", "Home");
-
-                    }
-                    else
+                    var authProperties = new AuthenticationProperties
                     {
-                        return View("Index", loginForm);
-                    }
+                        AllowRefresh = true,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
+                        IsPersistent = true,
+                    };
+
+                    //we sign in the user 
+
+                    await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity),
+                    authProperties
+                    );
+
+                    return RedirectToAction("Index", "Home");
+
+
+
                 }
                 else
                 {
@@ -92,6 +87,8 @@ namespace ramenHouse.Controllers
             }
             else
             {
+                //add an model level error 
+                ModelState.AddModelError("", "Invalid email or password");
                 return View("Index", loginForm);
             }
 

@@ -18,7 +18,7 @@ public class EmailExistAttribute : ValidationAttribute
             }
         }
 
-        return new ValidationResult("Email or password is incorrect, please have a recheck");
+        return new ValidationResult("Invalid email or password", new List<string>());
     }
 
 

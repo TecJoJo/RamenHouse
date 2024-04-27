@@ -20,7 +20,7 @@ namespace ramenHouse.Attributes
 
         if (user == null || user.Password != value as string)
         {
-            return new ValidationResult("Invalid email or password");
+            return new ValidationResult("Invalid email or password", new List<string>());
         }
 
         return ValidationResult.Success;
