@@ -35,21 +35,23 @@ namespace ramenHouse.Controllers
             if (!ModelState.IsValid)
             {
 
-            //Find User 
+                //add an model level error 
+                ModelState.AddModelError("", "Invalid email or password");
+                //Find User 
 
-            User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
+                User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
 
-            if (user != null)
-            {
-                //we verify the password and log the user in 
-                if (user.Password == loginForm.Password)
+                if (user != null)
                 {
-                    //user's role 
+                    //we verify the password and log the user in 
+                    if (user.Password == loginForm.Password)
+                    {
+                        //user's role 
 
-                    string RoleName = Enum.GetName(typeof(Role), user.Role)!;
+                        string RoleName = Enum.GetName(typeof(Role), user.Role)!;
 
-                    //we create cookies  
-                    var claims = new List<Claim>()
+                        //we create cookies  
+                        var claims = new List<Claim>()
                     {
                         new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                         new Claim(ClaimTypes.Role,RoleName),
@@ -57,35 +59,35 @@ namespace ramenHouse.Controllers
                     };
 
 
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    var authProperties = new AuthenticationProperties
+                        var authProperties = new AuthenticationProperties
+                        {
+                            AllowRefresh = true,
+                            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
+                            IsPersistent = true,
+                        };
+
+                        //we sign in the user 
+
+                        await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProperties
+                        );
+
+                        return RedirectToAction("Index", "Home");
+
+                    }
+                    else
                     {
-                        AllowRefresh = true,
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
-                        IsPersistent = true,
-                    };
-
-                    //we sign in the user 
-
-                    await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity),
-                    authProperties
-                    );
-
-                    return RedirectToAction("Index", "Home");
-
+                        return View("Index", loginForm);
+                    }
                 }
                 else
                 {
                     return View("Index", loginForm);
                 }
-            }
-            else
-            {
-                return View("Index", loginForm);
-            }
 
             }
             else
