@@ -5,6 +5,7 @@ using ramenHouse.Models;
 
 public class EmailExistAttribute : ValidationAttribute
 {
+    //this class is only used for registration not for login
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
         var _DbContext = (ApplicationDbContext)validationContext.GetService(typeof(ApplicationDbContext));

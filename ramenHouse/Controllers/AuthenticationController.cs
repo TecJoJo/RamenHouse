@@ -32,24 +32,27 @@ namespace ramenHouse.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserViewModel loginForm)
         {
+
+
+
+
+            User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
+
+            if (user == null || user.Password != loginForm.Password)
+            {
+                
+                ViewBag.ErrorMessage = "Invalid email or password";
+                return View("Index", loginForm);
+            }
+
             if (ModelState.IsValid)
             {
+                //user's role 
 
+                string RoleName = Enum.GetName(typeof(Role), user.Role)!;
 
-                //Find User 
-
-                User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
-
-                if (user != null)
-                {
-                    //we verify the password and log the user in 
-
-                    //user's role 
-
-                    string RoleName = Enum.GetName(typeof(Role), user.Role)!;
-
-                    //we create cookies  
-                    var claims = new List<Claim>()
+                //we create cookies  
+                var claims = new List<Claim>()
                     {
                         new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                         new Claim(ClaimTypes.Role,RoleName),
@@ -57,40 +60,34 @@ namespace ramenHouse.Controllers
                     };
 
 
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    var authProperties = new AuthenticationProperties
-                    {
-                        AllowRefresh = true,
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
-                        IsPersistent = true,
-                    };
-
-                    //we sign in the user 
-
-                    await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity),
-                    authProperties
-                    );
-
-                    return RedirectToAction("Index", "Home");
-
-
-
-                }
-                else
+                var authProperties = new AuthenticationProperties
                 {
-                    return View("Index", loginForm);
-                }
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
+                    IsPersistent = true,
+                };
 
+                //we sign in the user 
+
+                await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties
+                );
+
+                return RedirectToAction("Index", "Home");
             }
+
             else
             {
                 //add an model level error 
                 ModelState.AddModelError("", "Invalid email or password");
                 return View("Index", loginForm);
             }
+
+
 
 
         }

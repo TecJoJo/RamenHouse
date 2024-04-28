@@ -13,17 +13,18 @@
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form asp-controller="Authentication" asp-action="Login">
 
-
+                <h6 class="text-danger">@ViewBag.ErrorMessage</h6>
 
 
                     <!-- Email input -->
-                    <h5><span asp-validation-summary="ModelOnly" class="text-danger"></span></h5>
+                    
                     <div data-mdb-input-init class="form-outline mb-4">
 
 
                         <input asp-for="Email" class="form-control form-control-lg" placeholder="Enter valid username" />
                         <label asp-for="Email" class="form-label">Email</label>
-                        <h6><span asp-validation-for="Email" class="text-danger"></span></h6>
+                    <h6><span asp-validation-for="Email" class="text-danger"></span></h6>
+                        
                     </div>
 
                     <!-- Password input -->
@@ -32,7 +33,7 @@
 
                         <input asp-for="Password" class="form-control form-control-lg" placeholder="Enter password" />
                         <label asp-for="Password" class="form-label">Password</label>
-                        <h6><span asp-validation-for="Password" class="text-danger"></span></h6>
+                    <h6><span asp-validation-for="Password" class="text-danger"></span></h6>
                     </div>
 
 

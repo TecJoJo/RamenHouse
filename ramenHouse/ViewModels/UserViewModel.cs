@@ -7,10 +7,10 @@ namespace ramenHouse.ViewModels
     {
         [Required]
         [DataType(DataType.EmailAddress)]
-        [EmailExist]
+        
         public string Email { get; set; }
         [Required]
-        [PasswordVerification]
+        
         public string Password { get; set; }
     }
 }
