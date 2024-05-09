@@ -9,7 +9,11 @@ namespace ramenHouse.Models
 
             public DbSet<User> Users { get; set; }
             
+            public DbSet<Meal> Meals { get; set; }
 
+            public DbSet<Allergy> Allergies { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
 
 
         }

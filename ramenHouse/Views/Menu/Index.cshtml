@@ -1,28 +1,29 @@
-﻿
+﻿@using ramenHouse.ViewModels
+@model MenuViewModel
 
 <div id="menu-section-container" class="m-auto w-full md:w-10/12 xl:w-8/12">
 
     <div id="menu-filter" class="flex py-4">
-        @foreach (var item in new List<int>() { 1, 2, 3, 4, 5 })
+        @foreach (var category in Model.Categories)
         {
             <div class="me-4 rounded-full border border-yellow-700 hover:text-white hover:bg-yellow-700">
-                <a href="#" ><p class="px-4 py-2">lunch</p></a>
+                <a href="#" ><p class="px-4 py-2">@category</p></a>
                 
             </div>
         }
 </div>
 <div id="menu-grid-container" class="grid-cols-3 grid gap-3">
 
-    @foreach (var item in new List<int>() { 1, 2, 3, 4, 5 })
+    @foreach (var meal in Model.Meals)
     {
             <div id="grid-item" class="flex flex-col border shadow-md">
-            <img src="imgs/placeholder-image.jpg" class="h-3/5 object-cover" />
+            <img src="@meal.ImageUrl" class="h-3/5 object-cover" />
             <div class="grid-cols-6 m-3 grid h-2/5">
-                <h1 class="col-span-4">hello world </h1>
-                <h1 class="col-span-2">rating</h1>
-                <h1 class="col-span-6 row-span-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur nisi vitae diam lacinia, et iaculis velit commodo. Nulla tristique</h1>
-                <h1 class="col-span-3">price</h1>
-                <h1 class="col-span-3">allergies</h1>
+                <h1 class="col-span-4">@meal.Title</h1>
+                <h1 class="col-span-2">@meal.Rating</h1>
+                <h1 class="col-span-6 row-span-2">@meal.Description</h1>
+                <h1 class="col-span-3">@(meal.Price) €</h1>
+                <h1 class="col-span-3">@meal.Allergies</h1>
             </div>
         </div>
 
