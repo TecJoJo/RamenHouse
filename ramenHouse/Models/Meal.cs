@@ -21,7 +21,9 @@ namespace ramenHouse.Models
         public DateTime CreationTime { get; set; }
 
         [ForeignKey(nameof(Category))]
-        public int Category { get; set; }
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
 
         public ICollection<Allergy> Allergies { get; set; } = new List<Allergy>();
 

@@ -1,13 +1,18 @@
 ﻿@using ramenHouse.ViewModels
 @model MenuViewModel
 
+@{
+    var filters = new List<string>(Model.Categories);
+    filters.Insert(0, "All");
+}
+
 <div id="menu-section-container" class="m-auto w-full md:w-10/12 xl:w-8/12">
 
     <div id="menu-filter" class="flex py-4">
-        @foreach (var category in Model.Categories)
+        @foreach (var category in filters)
         {
             <div class="me-4 rounded-full border border-yellow-700 hover:text-white hover:bg-yellow-700">
-                <a href="#" ><p class="px-4 py-2">@category</p></a>
+                <a href="/Menu?Category=@category" ><p class="px-4 py-2">@category</p></a>
                 
             </div>
         }

@@ -12,11 +12,31 @@ namespace ramenHouse.Controllers
             _dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? category)
         {
-            var meals = _dbContext.Meals.Include(m => m.Allergies).ToList(); //meals with all the allergy properties
+            //filter the meals based on the category 
+            var meals = new List<Meal>();
+            if (category ==null || category == "All")
+            {
+
+            meals = _dbContext.Meals.Include(m => m.Allergies).ToList(); //meals with all the allergy properties
+            }
+            else
+            {
+
+            meals = _dbContext.Meals.Include(m => m.Category).Where(e => e.Category.Name == category).ToList();
+            }
+
+
+            
+
+
+
+
             var categories = _dbContext.Categories.Select(e=>e.Name).ToList();
             var menuViewModel = new MenuViewModel();
+
+            //check the meal's length, if the the result is found, then we return normal view, if it no result is found, then we add infomation into the viewModel and render the view with the infomaton
             foreach (var meal in meals){
                 var mealViewModel = new MealViewModel()
                 {
