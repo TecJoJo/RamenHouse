@@ -37,6 +37,8 @@ namespace ramenHouse.Controllers
             var menuViewModel = new MenuViewModel();
 
             //check the meal's length, if the the result is found, then we return normal view, if it no result is found, then we add infomation into the viewModel and render the view with the infomaton
+
+           
             foreach (var meal in meals){
                 var mealViewModel = new MealViewModel()
                 {
@@ -51,8 +53,8 @@ namespace ramenHouse.Controllers
 
 
                 menuViewModel.Meals.Add(mealViewModel);
-                menuViewModel.Categories = categories;
             }
+                menuViewModel.Categories = categories;
 
 
 

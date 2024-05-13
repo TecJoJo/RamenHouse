@@ -12,32 +12,40 @@
         @foreach (var category in filters)
         {
             <div class="me-4 rounded-full border border-yellow-700 hover:text-white hover:bg-yellow-700">
-                <a href="/Menu?Category=@category" ><p class="px-4 py-2">@category</p></a>
-                
+                <a href="/Menu?Category=@category"><p class="px-4 py-2">@category</p></a>
+
             </div>
         }
-</div>
-<div id="menu-grid-container" class="grid-cols-3 grid gap-3">
-
-    @foreach (var meal in Model.Meals)
+    </div>
+    @if (Model.Meals.Count > 0)
     {
+        
+    <div id="menu-grid-container" class="grid-cols-3 grid gap-3">
+
+        @foreach (var meal in Model.Meals)
+        {
             <div id="grid-item" class="flex flex-col border shadow-md">
-            <img src="@meal.ImageUrl" class="h-3/5 object-cover" />
-            <div class="grid-cols-6 m-3 grid h-2/5">
-                <h1 class="col-span-4">@meal.Title</h1>
-                <h1 class="col-span-2">@meal.Rating</h1>
-                <h1 class="col-span-6 row-span-2">@meal.Description</h1>
-                <h1 class="col-span-3">@(meal.Price) €</h1>
-                <h1 class="col-span-3">@meal.Allergies</h1>
+                <img src="@meal.ImageUrl" class="h-3/5 object-cover" />
+                <div class="grid-cols-6 m-3 grid h-2/5">
+                    <h1 class="col-span-4">@meal.Title</h1>
+                    <h1 class="col-span-2">@meal.Rating</h1>
+                    <h1 class="col-span-6 row-span-2">@meal.Description</h1>
+                    <h1 class="col-span-3">@(meal.Price) €</h1>
+                    <h1 class="col-span-3">@meal.Allergies</h1>
+                </div>
             </div>
+
+        }
+
+
+
+
+
+
         </div>
-
     }
-
-
-
-
-
-
-</div>
+    else
+    {
+        <h1 class="text-center font-mono text-3xl text-yellow-700">Oops! We could't find any result</h1>
+    }
 </div>
