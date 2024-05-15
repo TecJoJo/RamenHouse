@@ -11,8 +11,8 @@
      <link href="~/mytailwind.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-white">
+    <header class="m-auto mb-16 mt-4 flex w-full items-center justify-between md:w-10/12 xl:w-8/12">
+        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ramenHouse</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -30,7 +30,21 @@
                     </ul>
                 </div>
             </div>
+        </nav>-->
+        <img src="/imgs/RamenHouse.jpg" alt="RamenHouse logo Text" class="h-16"/>
+        <nav class="flex gap-4">
+            <a  href="#"><p class="text-yellow-700 underline">Home</p></a>
+            <a  href="#"><p class="text-black">Menu</p></a>
+
+            <a  href="#"><p class="text-black">Offers</p></a>
+            <a  href="#"><p class="text-black">About</p></a>
         </nav>
+        <div id="header-contact" class="flex items-center rounded-full border bg-yellow-700 text-white hover:bg-yellow-600">
+            <img src="/icons/phone-outline.svg" alt="Alternate Text" class="ml-2 h-6" />
+            <p class="px-4 py-2 text-white">Contact</p>
+        </div>
+
+        
     </header>
     <div class="w-full">
         <main role="main" class="w-full">
@@ -39,9 +53,9 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <!--<div class="container">
             &copy; 2024 - ramenHouse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+        </div>-->
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
    @*  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
