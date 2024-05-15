@@ -12,25 +12,7 @@
 </head>
 <body>
     <header class="m-auto mb-16 mt-4 flex w-full items-center justify-between md:w-10/12 xl:w-8/12">
-        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-white">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ramenHouse</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse d-sm-inline-flex justify-content-between collapse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>-->
+        
         <img src="/imgs/RamenHouse.jpg" alt="RamenHouse logo Text" class="h-16"/>
         <nav class="flex gap-4">
             <a  href="#"><p class="text-yellow-700 underline">Home</p></a>
@@ -52,10 +34,58 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <!--<div class="container">
-            &copy; 2024 - ramenHouse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>-->
+    <!--<footer class="grid-rows-8 grid-cols-8 mx-auto my-8 grid w-full auto-rows-fr gap-1 md:w-10/12 xl:w-8/12">
+        <div id="footer-logo" class="row-span-4"><img src="/imgs/RamenHouse.jpg" alt="RamenHouse logo Text"  /></div>
+        <div class="col-start-3">Site Navigation</div>
+        <div class="col-start-5">contact us</div>
+        <div class="col-start-7 col-end-9">facebook,instgram,youtube</div>
+        <div class="col-start-3 row-start-3">home</div>
+        <div class="col-start-5 row-start-3">email</div>
+        <div class="col-start-3 row-start-4">offers</div>
+        <div class="col-start-1 col-span-2 row-start-5 row-end-7">The standard chunk of Lorem Ipsum used since the 1500.</div>
+        <div class="col-start-3 row-start-5">menu</div>
+        <div class="col-start-5 row-start-5">social media</div>
+        <div class="col-start-3 row-start-6">reservation</div>
+        <div class="col-start-7 col-span-2 row-start-6 justify-self-end">login</div>
+        <div class="col-start-5 row-start-4">3581656161</div>
+        <div class="col-start-5 row-start-4">3581656161</div>
+        <div class="col-start-4 col-span-2 row-start-8">copyright</div>
+
+        
+    </footer>-->
+
+    <footer>
+        <div id="main footer" class="my-16 flex items-start justify-around">
+            <div id="footer-logo" class="flex w-48 flex-col items-start">
+
+                <img src="/imgs/RamenHouse.jpg" alt="RamenHouse logo Text" class="h-32 object-contain" />
+                <p class="text-wrap">The standard chunk of Lorem Ipsum used since the 1500.</p>
+                
+            </div>
+            <div id="footer-menu" class="flex flex-col">
+                <p>Site Navigation</p>
+                <a href="#"><p>Home</p></a>
+                <a href="#"><p>Offers</p></a>
+                <a href="#"><p>Menus</p></a>
+                <a href="#"><p>Reservation</p></a>
+            </div>
+            <div id="footer-contact-us" class="flex flex-col">
+                <p>Contact us</p>
+                <a href="#"><p>example@gmail.com</p></a>
+                <a href="#"><p>+3586119151651</p></a>
+                <a href="#"><p>Social media</p></a>
+                
+            </div>
+            <div id="footer-contact-us" class="flex flex-col">
+                <div class="flex flex-col">
+
+                <a href="#"><p>Facebook</p></a>
+                <a href="#"><p>Instgram</p></a>
+                <a href="#"><p>Youtube</p></a>
+                </div>
+                <p>stuff login</p>
+            </div>
+        </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
    @*  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
