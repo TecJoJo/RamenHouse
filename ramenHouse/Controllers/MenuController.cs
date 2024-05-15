@@ -42,12 +42,13 @@ namespace ramenHouse.Controllers
             foreach (var meal in meals){
                 var mealViewModel = new MealViewModel()
                 {
+                    MealId = meal.MealId,
                     Title = meal.Title,
                     Description = meal.Description,
                     ImageUrl = meal.ImgUrl,
                     Rating = meal.Rating,
                     Price = meal.Price,
-                    Allergies = string.Join(" ", meal.Allergies.Select(e => e.Abbreviation))
+                    AllergiesShort = string.Join(" ", meal.Allergies.Select(e => e.Abbreviation))
                 };
 
 
@@ -63,6 +64,29 @@ namespace ramenHouse.Controllers
             
 
             return View(menuViewModel);
+        }
+
+        public IActionResult Detail(int id)
+        {
+
+            var meal = _dbContext.Meals.Where(e => e.MealId == id).Include(m => m.Allergies).Include(m=>m.Category).FirstOrDefault();
+
+            var mealViewModel = new MealViewModel()
+            {
+                Category = meal.Category.Name,
+                Title = meal.Title,
+                Description = meal.Description,
+                ImageUrl = meal.ImgUrl,
+                Rating = meal.Rating,
+                Price = meal.Price,
+                AllergiesShort = string.Join(" ", meal.Allergies.Select(e => e.Abbreviation)),
+                AllergiesLong = string.Join(" ", meal.Allergies.Select(e => e.Name))
+            };
+            
+
+
+
+            return View(mealViewModel); 
         }
     }
 }

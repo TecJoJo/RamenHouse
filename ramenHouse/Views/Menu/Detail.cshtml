@@ -1,0 +1,39 @@
+﻿@using ramenHouse.ViewModels
+@model MealViewModel 
+
+<div id="detail-section-container" class="m-auto w-full md:w-10/12 xl:w-8/12">
+    
+    <!--the main display should following an fixed ration which will be handled either by css or js later -->
+    <section id="main-display" class="flex flex-col gap-x-4 border shadow-md md:flex-row">
+        <img src="/imgs/placeholder-image.jpg"  class="md:w-3/5"/>
+        <div id="main-display-description" class="md:w-2/5">
+            <div id="main-display-title" class="flex h-2/5 items-center justify-center">
+                <h1>@Model.Title</h1>
+            </div>
+            <div id="main-display-description" class="flex h-3/5 items-center justify-center">
+                <p >@Model.Description</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sub-descirptions" class="flex-w my-8 flex flex-col items-start">
+        <div class="my-1 rounded-full border bg-yellow-700 text-white"><p class="px-4 py-2">Price: @(Model.Price) €</p></div>
+        <div class="my-1 rounded-full border bg-yellow-700 text-white"><p class="px-4 py-2">Category: @Model.Category</p></div>
+        <div class="my-1 rounded-full border bg-yellow-700 text-white">
+          
+             
+                @if (Model.AllergiesShort == string.Empty)
+                {
+                <p class="px-4 py-2">Allergy: N/A</p>
+                }
+                else
+                {
+
+
+                <p class="px-4 py-2">Allergy info: @Model.AllergiesLong</p>
+                }
+            
+        </div>
+    </section>
+    
+</div>
