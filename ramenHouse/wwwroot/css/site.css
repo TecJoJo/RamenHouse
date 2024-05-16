@@ -1,3 +1,5 @@
+
+
 html {
   font-size: 14px;
 }
@@ -24,4 +26,8 @@ body {
 #hero-section{
    
   grid-template-rows:repeat(4,minmax(15vh,1fr));
+}
+
+#dish-img-mosaic {
+    grid-template-rows: repeat(12,minmax(5px,50px));
 }
