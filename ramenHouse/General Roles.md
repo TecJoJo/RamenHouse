@@ -5,4 +5,8 @@
 - tailwind 3/5 and 2/5 
 
 # button padding 
-class="px-4 py-2"
+class="	"
+
+# breaking points
+- md
+- xl
