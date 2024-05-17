@@ -1,0 +1,43 @@
+﻿<div id="example-users"></div>
+
+@section Scripts {
+    <script src="/lib/jquery.gui-grid.js"></script>
+    <script>
+        const source = [
+            {
+                name: 'T-shirt',
+                type: 'clothes',
+                price: '15$'
+            },
+            {
+                name: 'Shoes',
+                type: 'footwear',
+                price: '100$'
+            },
+            {
+                name: 'Ball cap',
+                type: 'headgear',
+                price: '50$'
+            }];
+
+
+        $("#example-users").guiGrid({
+            source: source,
+            columns: [
+                {
+                    header: "Name",
+                    field: "name",
+                },
+                {
+                    header: "Type",
+                    field: "type",
+                },
+                {
+                    header: "Price",
+                    field: "price",
+                },
+            ],
+
+        });
+    </script>
+}
