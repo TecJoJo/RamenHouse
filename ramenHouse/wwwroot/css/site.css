@@ -31,3 +31,7 @@ body {
 #dish-img-mosaic {
     grid-template-rows: repeat(12,minmax(5px,50px));
 }
+
+.card-aspect-ratio{
+    aspect-ratio:2/3;
+}
