@@ -1,43 +1,98 @@
-﻿<div id="example-users"></div>
+﻿@using ramenHouse.ViewModels
+@model AdminViewModel
+
+@{
+
+	var meals = Model.meals;
+
+	var source = meals.Select(meal => new {
+        mealId = meal.MealId,
+        dishName = meal.Title,
+        description = meal.Description,
+        imageUrl = meal.ImageUrl,
+        rating = meal.Rating,
+        allergies = meal.AllergiesLong
+
+    });
+}
+
+
+<div id="meals-management"></div>
 
 @section Scripts {
     <script src="/lib/jquery.gui-grid.js"></script>
     <script>
-        const source = [
-            {
-                name: 'T-shirt',
-                type: 'clothes',
-                price: '15$'
-            },
-            {
-                name: 'Shoes',
-                type: 'footwear',
-                price: '100$'
-            },
-            {
-                name: 'Ball cap',
-                type: 'headgear',
-                price: '50$'
-            }];
 
+        function editMeal(e) {
+            
+                console.log("the source is edit", e.after)
+                console.log("the source is edit", e.before)
 
-        $("#example-users").guiGrid({
-            source: source,
-            columns: [
+            const data = e.after
+
+            fetch("/Admin/MealUpdate", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            
+        }
+
+        $('#meals-management').guiGrid({
+			columns: [
                 {
-                    header: "Name",
-                    field: "name",
+                    header: "Meal ID",
+                    field: "mealId"
+                },
+				{
+					header:"Dish Name",
+					field:"dishName"
+				},
+				{
+					header:"Description",
+					field:"description"
+				},
+                {
+                    header: "Image URL",
+                    field: "imageUrl"
                 },
                 {
-                    header: "Type",
-                    field: "type",
-                },
+					header:"Rating",
+                    field: "rating"
+				},
                 {
-                    header: "Price",
-                    field: "price",
+                    header: "Allergies",
+                    field: "allergies"
                 },
-            ],
-
+				
+			],
+            source: @Html.Raw(Json.Serialize(source)),
+            cellEditing: true,
+            onSourceEdit:editMeal ,
         });
+
+
+       
+
+
     </script>
 }
+
+<!--
+            cellEditing: true,
+            onSourceEdit: function (e) {
+                console.log("the source is edit", e)
+            },
+            onCellEditSubmit: function (e) {
+                console.log("onCellEditSubmit", e)
+            },
+            onColumnsChange: function (e) {
+                console.log("onColumnsChange", e)
+            },
+            onItemsSelect: function (e) {
+                console.log("onItemsSelect", e)
+            }
+        });
+-->

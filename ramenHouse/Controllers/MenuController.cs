@@ -36,7 +36,6 @@ namespace ramenHouse.Controllers
             var categories = _dbContext.Categories.Select(e=>e.Name).ToList();
             var menuViewModel = new MenuViewModel();
 
-            //check the meal's length, if the the result is found, then we return normal view, if it no result is found, then we add infomation into the viewModel and render the view with the infomaton
 
            
             foreach (var meal in meals){
