@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ramenHouse.FormModels;
 using ramenHouse.Models;
 using ramenHouse.ViewModels;
 
@@ -46,17 +47,17 @@ namespace ramenHouse.Controllers
         }
 
         [HttpPost]
-        public IActionResult MealUpdate(dynamic form)
+        public IActionResult MealUpdate([FromBody] UpdateMealFormModel form)
         {
             var mealId = form.mealId;
-            Meal meal = _dbContext.Find(mealId);
+            Meal meal = _dbContext.Meals.Find(mealId);
 
 
 
             meal.Title = form.dishName;
             meal.Description = form.description;
         meal.ImgUrl = form.imageUrl;
-            meal.Rating = form.Rating;
+            meal.Rating = form.rating;
             _dbContext.SaveChanges();
         
 
