@@ -15,7 +15,9 @@ namespace ramenHouse.Models
 
         public int Rating { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal BasePrice { get; set; }
+
+        
 
 
         public DateTime CreationTime { get; set; }
@@ -27,6 +29,9 @@ namespace ramenHouse.Models
 
         public ICollection<Allergy> Allergies { get; set; } = new List<Allergy>();
 
+        public bool IsFeatured { get; set; }
+
+        public decimal Discount { get; set; }
 
 
     }

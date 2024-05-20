@@ -3,16 +3,27 @@
 
 @{
 
-	var meals = Model.meals;
+    var meals = Model.meals;
 
-	var source = meals.Select(meal => new {
-        mealId = meal.MealId,
-        dishName = meal.Title,
-        description = meal.Description,
-        imageUrl = meal.ImageUrl,
-        rating = meal.Rating,
-        allergies = meal.AllergiesLong
+    var source = meals.Select(meal =>
+    {
+            var salePrice = meal.BasePrice * (1 - meal.Discount);
+        return
+        new
+        {
+            mealId = meal.MealId,
+            dishName = meal.Title,
+            description = meal.Description,
+            imageUrl = meal.ImageUrl,
+            rating = meal.Rating,
+            allergies = meal.AllergiesLong,
+            basePrice = meal.BasePrice,
+            discount = meal.Discount,
+            salePrice = salePrice,
+            isFeatured = meal.IsFeatured
 
+
+        };
     });
 }
 
@@ -23,58 +34,85 @@
     <script src="/lib/jquery.gui-grid.js"></script>
     <script>
 
+        const source = @Html.Raw(Json.Serialize(source))
+
+        const grid = $('#meals-management').guiGrid({
+            columns: [
+                {
+                    header: "Meal ID",
+                    field: "mealId"
+                },
+                {
+                    header: "Dish Name",
+                    field: "dishName"
+                },
+                {
+                    header: "Description",
+                    field: "description"
+                },
+                {
+                    header: "Image URL",
+                    field: "imageUrl"
+                },
+                {
+                    header: "Rating",
+                    field: "rating"
+                },
+                {
+                    header: "Allergies",
+                    field: "allergies"
+                },
+                {
+                    header: "Base Price",
+                    field: "basePrice"
+                },
+                {
+                    header: "Discount",
+                    field: "discount"
+                },
+                {
+                    header: "Sale Price",
+                    field: "salePrice"
+                },
+                {
+                    header: "Featured Meal",
+                    field: "isFeatured"
+                },
+
+            ],
+            source: source,
+            cellEditing: true,
+            onSourceEdit:editMeal ,
+        });
+
+
         function editMeal(e) {
-            
-                console.log("the source is edit", e.after)
-                console.log("the source is edit", e.before)
+
+            console.log("the source is edit", e.after)
+            console.log("the source is edit", e.before)
 
             const data = e.after
 
-            fetch("/Admin/MealUpdate", {
+            fetch("/Admin/MealUpdate", {    
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             })
-            
+
+            console.log("grid", grid)
+            const newSource = source.map((meal) => { 
+                if (meal.mealId === e.after.mealId) {
+                    mealModified = e.after 
+                    mealModified.salePrice = mealModified.basePrice*(1-mealModified.discount)
+                    return mealModified
+                }
+                return meal
+            });
+            grid.setSource(newSource)
+
         }
-
-        $('#meals-management').guiGrid({
-			columns: [
-                {
-                    header: "Meal ID",
-                    field: "mealId"
-                },
-				{
-					header:"Dish Name",
-					field:"dishName"
-				},
-				{
-					header:"Description",
-					field:"description"
-				},
-                {
-                    header: "Image URL",
-                    field: "imageUrl"
-                },
-                {
-					header:"Rating",
-                    field: "rating"
-				},
-                {
-                    header: "Allergies",
-                    field: "allergies"
-                },
-				
-			],
-            source: @Html.Raw(Json.Serialize(source)),
-            cellEditing: true,
-            onSourceEdit:editMeal ,
-        });
-
-
-       
 
 
     </script>

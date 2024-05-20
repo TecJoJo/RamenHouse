@@ -31,8 +31,11 @@ namespace ramenHouse.Controllers
                     Description = meal.Description,
                     ImageUrl = meal.ImgUrl,
                     Rating = meal.Rating,
-                    Price = meal.Price,
-                    AllergiesLong = string.Join(",", meal.Allergies.Select(e => e.Name))
+                    AllergiesLong = string.Join(",", meal.Allergies.Select(e => e.Name)),
+                    IsFeatured = meal.IsFeatured,
+                    BasePrice = meal.BasePrice,
+                    Discount = meal.Discount,
+
                 };
 
 
@@ -58,6 +61,9 @@ namespace ramenHouse.Controllers
             meal.Description = form.description;
         meal.ImgUrl = form.imageUrl;
             meal.Rating = form.rating;
+            meal.BasePrice = form.basePrice;
+            meal.Discount = form.discount;
+            meal.IsFeatured = form.isFeatured;
             _dbContext.SaveChanges();
         
 

@@ -46,7 +46,7 @@ namespace ramenHouse.Controllers
                     Description = meal.Description,
                     ImageUrl = meal.ImgUrl,
                     Rating = meal.Rating,
-                    Price = meal.Price,
+                    BasePrice = meal.BasePrice,
                     AllergiesShort = string.Join(" ", meal.Allergies.Select(e => e.Abbreviation))
                 };
 
@@ -77,7 +77,7 @@ namespace ramenHouse.Controllers
                 Description = meal.Description,
                 ImageUrl = meal.ImgUrl,
                 Rating = meal.Rating,
-                Price = meal.Price,
+                BasePrice = meal.BasePrice,
                 AllergiesShort = string.Join(" ", meal.Allergies.Select(e => e.Abbreviation)),
                 AllergiesLong = string.Join(" ", meal.Allergies.Select(e => e.Name))
             };

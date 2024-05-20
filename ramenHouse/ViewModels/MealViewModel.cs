@@ -12,12 +12,18 @@
 
         public int Rating { get; set; } 
 
-        public decimal Price { get; set; }  
+        public decimal BasePrice { get; set; }  
+
+
 
         public string AllergiesShort { get; set; } = string.Empty;
 
         public string AllergiesLong { get; set; } = string.Empty;
 
         public string Category {  get; set; } = string.Empty;
+
+        public decimal Discount { get; set; } 
+
+        public bool IsFeatured { get; set; }
     }
 }
