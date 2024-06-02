@@ -141,11 +141,31 @@ namespace ramenHouse.Controllers
                 _dbContext.Meals.Add(newMeal);
                 _dbContext.SaveChanges();
 
+                return RedirectToAction("Index");
 
-                
             }
+            else
+            {
 
             return RedirectToAction("MealCreate");
+            }
+
+        }
+
+        [HttpPost]
+        public IActionResult MealDelete([FromBody] int id)
+       {
+            //int.TryParse(id, out int mealId);
+            var meal = _dbContext.Meals.Find(id);
+            if (meal != null)
+            {
+                _dbContext.Meals.Remove(meal);
+                _dbContext.SaveChanges();
+
+                return Ok(new { status = 200, message = "Meal deleted successfully", success = true });
+            }
+               
+                return NotFound(new { status = 404, message = "Transaction not found", error = true });
         }
     }
 }
