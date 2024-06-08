@@ -35,3 +35,8 @@ body {
 .card-aspect-ratio{
     aspect-ratio:2/3;
 }
+
+.img-overlapping-right-bottom {
+    right: -30%;
+    bottom: -20%;
+}
