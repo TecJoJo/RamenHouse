@@ -1,9 +1,10 @@
 ﻿using ramenHouse.Attributes;
+using ramenHouse.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace ramenHouse.ViewModels
 {
-    public class UserViewModel
+    public class UserViewModel:IValidatableObject
     {
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -12,5 +13,18 @@ namespace ramenHouse.ViewModels
         [Required]
         
         public string Password { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var _context = (ApplicationDbContext)validationContext.GetService(typeof(ApplicationDbContext));
+
+            // Now you can use _context to access your database
+            var user = _context.Users.FirstOrDefault(u => u.Email == Email);
+
+            if (user == null || user.Password != Password)
+            {
+                yield return new ValidationResult("Invalid email or password");
+            }
+        }
     }
 }

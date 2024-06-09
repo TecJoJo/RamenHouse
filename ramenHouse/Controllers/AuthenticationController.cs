@@ -38,15 +38,10 @@ namespace ramenHouse.Controllers
 
             User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
 
-            if (user == null || user.Password != loginForm.Password)
-            {
-                
-                ViewBag.ErrorMessage = "Invalid email or password";
-                return View("Index", loginForm);
-            }
-
+            
             if (ModelState.IsValid)
             {
+                
                 //user's role 
 
                 string RoleName = Enum.GetName(typeof(Role), user.Role)!;
@@ -82,8 +77,7 @@ namespace ramenHouse.Controllers
 
             else
             {
-                //add an model level error 
-                ModelState.AddModelError("", "Invalid email or password");
+                
                 return View("Index", loginForm);
             }
 
