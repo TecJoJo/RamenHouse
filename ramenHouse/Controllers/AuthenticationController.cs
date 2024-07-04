@@ -72,7 +72,7 @@ namespace ramenHouse.Controllers
                 authProperties
                 );
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "admin");
             }
 
             else

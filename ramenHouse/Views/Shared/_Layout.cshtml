@@ -15,11 +15,17 @@
         
         <img src="/imgs/RamenHouse.jpg" alt="RamenHouse logo Text" class="h-16"/>
         <nav class="flex gap-4">
-            <a  href="#"><p class="text-yellow-700 underline">Home</p></a>
-            <a  href="#"><p class="text-black">Menu</p></a>
+            <a  href="/"><p class="text-yellow-700 underline">Home</p></a>
+            <a  href="/menu"><p class="text-black">Menu</p></a>
 
             <a  href="#"><p class="text-black">Offers</p></a>
             <a  href="#"><p class="text-black">About</p></a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                
+            <a href="/admin"><p class="text-black">Restaurant Management</p></a>
+            }
+
         </nav>
         <div id="header-contact" class="flex items-center rounded-full border bg-yellow-700 text-white hover:bg-yellow-600">
             <img src="/icons/phone-outline.svg" alt="Alternate Text" class="ml-2 h-6" />
@@ -83,7 +89,7 @@
                 <a href="#"><p>Instgram</p></a>
                 <a href="#"><p>Youtube</p></a>
                 </div>
-                <p>stuff login</p>
+                <a href="/authentication"><p>Stuff Login</p></a>
             </div>
         </div>
     </footer>
