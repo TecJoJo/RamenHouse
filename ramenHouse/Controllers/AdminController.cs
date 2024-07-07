@@ -159,13 +159,35 @@ namespace ramenHouse.Controllers
             var meal = _dbContext.Meals.Find(id);
             if (meal != null)
             {
+                var imgPath = meal.ImgUrl;
+                var absoluteImgPath = Path.Combine(_env.WebRootPath, imgPath.TrimStart('/').Replace("/","\\"));
+                if (System.IO.File.Exists(absoluteImgPath))
+                    
+                {
+                    try
+                    {
+
+                    System.IO.File.Delete(absoluteImgPath);
+                    Console.WriteLine($"{absoluteImgPath} is deleted successfully");
+                    }
+                        
+                    catch ( Exception ex )
+                    {
+                        Console.WriteLine($"An error occurred while deleting the file: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"file {imgPath} is not found");
+                }
+
                 _dbContext.Meals.Remove(meal);
                 _dbContext.SaveChanges();
 
                 return Ok(new { status = 200, message = "Meal deleted successfully", success = true });
             }
                
-                return NotFound(new { status = 404, message = "Transaction not found", error = true });
+                return NotFound(new { status = 404, message = "Meal not found", error = true });
         }
     }
 }

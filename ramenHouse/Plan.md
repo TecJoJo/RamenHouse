@@ -6,5 +6,7 @@
 
 
 
-[] test food dataBase the layout of the picuture
-[] delete the meal should also clear the static file
+[ X ] test food dataBase the layout of the picuture
+[ X ] delete the meal should also clear the static file
+[ ] featured section pictures dynamically based on the featured field
+[]daily special offer pictures dynamically based on discount 
