@@ -5,7 +5,7 @@
     
     <!--the main display should following an fixed ration which will be handled either by css or js later -->
     <section id="main-display" class="flex flex-col gap-x-4 border shadow-md md:flex-row">
-        <img src="/imgs/placeholder-image.jpg"  class="md:w-3/5"/>
+        <img src="@Model.ImageUrl" class="md:w-3/5" alt="Ramen Image" />
         <div id="main-display-description" class="md:w-2/5">
             <div id="main-display-title" class="flex h-2/5 items-center justify-center">
                 <h1>@Model.Title</h1>

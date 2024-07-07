@@ -1,4 +1,4 @@
-﻿@using ramenHouse.ViewModels
+﻿    @using ramenHouse.ViewModels
 @model MenuViewModel
 
 @{
@@ -26,8 +26,10 @@
             {
                 <a href="Menu/Detail/@meal.MealId">
 
-                    <div id="grid-item" class="flex flex-col border shadow-md">
-                        <img src="@meal.ImageUrl" class="h-3/5 object-cover" />
+                    <div id="grid-item" class="card-height flex flex-col border shadow-md">
+                        <div class="h-3/5">
+                            <img src="@meal.ImageUrl" class="h-full w-full object-cover"  />
+                       </div> 
                         <div class="grid-cols-6 m-3 grid h-2/5">
                             <h1 class="col-span-4">@meal.Title</h1>
                             <h1 class="col-span-2">@meal.Rating</h1>

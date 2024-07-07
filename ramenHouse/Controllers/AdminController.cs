@@ -105,7 +105,7 @@ namespace ramenHouse.Controllers
                 var filePath = Path.Combine(imgStoragePath,filename);
                 // we extract this relative path which can be using in the html. 
                 string relativeFilePath = Path.Combine(_config["imgStoragePath"], Path.GetFileName(filePath)).Replace("\\", "/");
-
+                relativeFilePath = "/" + relativeFilePath;
                 using (var stream = System.IO.File.Create(filePath))
                 {
                     mealCreateForm.imgFile.CopyTo(stream);
