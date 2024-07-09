@@ -12,6 +12,9 @@ namespace ramenHouse.Controllers
             _dbContext = dbContext;
         }
 
+
+
+
         public IActionResult Index(string? category)
         {
             //filter the meals based on the category 

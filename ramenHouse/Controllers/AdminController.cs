@@ -19,6 +19,9 @@ namespace ramenHouse.Controllers
             _config = config;
             _env = env;
         }
+
+
+
         public IActionResult Index()
         {
 
@@ -89,26 +92,33 @@ namespace ramenHouse.Controllers
         {
             if(ModelState.IsValid)
             {
-                
+
+
+                string relativeFilePath = "/imgs/application/placeholder-image.jpg";
+                //only if user provided img we process the img, otherwise defualt message will be tied to the meal
+                if (mealCreateForm.imgFile != null)
+                {
+
 
                 //store the uploaded image 
-                var imgStoragePath = Path.Combine(_env.WebRootPath, _config["imgStoragePath"]);
-                if (!Directory.Exists(imgStoragePath))
-                {
-                    Directory.CreateDirectory(imgStoragePath);
-                }
+                    var imgStoragePath = Path.Combine(_env.WebRootPath, _config["imgStoragePath"]);
+                    if (!Directory.Exists(imgStoragePath))
+                    {
+                        Directory.CreateDirectory(imgStoragePath);
+                    }
 
-                string filename = Path.GetFileNameWithoutExtension(mealCreateForm.imgFile.FileName);
-                string fileExtension = Path.GetExtension(mealCreateForm.imgFile.FileName);
-                filename = filename + DateTime.Now.ToString("yymmssfff") + fileExtension;
+                    string filename = Path.GetFileNameWithoutExtension(mealCreateForm.imgFile.FileName);
+                    string fileExtension = Path.GetExtension(mealCreateForm.imgFile.FileName);
+                    filename = filename + DateTime.Now.ToString("yymmssfff") + fileExtension;
 
-                var filePath = Path.Combine(imgStoragePath,filename);
-                // we extract this relative path which can be using in the html. 
-                string relativeFilePath = Path.Combine(_config["imgStoragePath"], Path.GetFileName(filePath)).Replace("\\", "/");
-                relativeFilePath = "/" + relativeFilePath;
-                using (var stream = System.IO.File.Create(filePath))
-                {
-                    mealCreateForm.imgFile.CopyTo(stream);
+                    var filePath = Path.Combine(imgStoragePath, filename);
+                    // we extract this relative path which can be using in the html. 
+                    relativeFilePath = Path.Combine(_config["imgStoragePath"], Path.GetFileName(filePath)).Replace("\\", "/");
+                    relativeFilePath = "/" + relativeFilePath;
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        mealCreateForm.imgFile.CopyTo(stream);
+                    }
                 }
 
                 //add the new meal infomation into the database
