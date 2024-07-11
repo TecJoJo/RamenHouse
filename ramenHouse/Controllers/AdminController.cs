@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ramenHouse.Data;
 using ramenHouse.FormModels;
 using ramenHouse.Models;
 using ramenHouse.ViewModels;
@@ -67,16 +68,16 @@ namespace ramenHouse.Controllers
 
             meal.Title = form.dishName;
             meal.Description = form.description;
-        meal.ImgUrl = form.imageUrl;
+            meal.ImgUrl = form.imageUrl;
             meal.Rating = form.rating;
             meal.BasePrice = form.basePrice;
             meal.Discount = form.discount;
             meal.IsFeatured = form.isFeatured;
             _dbContext.SaveChanges();
-        
 
 
-            return RedirectToAction("Index");   
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -90,7 +91,7 @@ namespace ramenHouse.Controllers
         [HttpPost]
         public IActionResult MealCreate(MealCreateFormModel mealCreateForm)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
 
@@ -100,7 +101,7 @@ namespace ramenHouse.Controllers
                 {
 
 
-                //store the uploaded image 
+                    //store the uploaded image 
                     var imgStoragePath = Path.Combine(_env.WebRootPath, _config["imgStoragePath"]);
                     if (!Directory.Exists(imgStoragePath))
                     {
@@ -129,7 +130,7 @@ namespace ramenHouse.Controllers
                     ImgUrl = relativeFilePath,
                     BasePrice = mealCreateForm.BasePrice,
                     CreationTime = DateTime.Now,
-
+                    IsFeatured = mealCreateForm.IsFeatured,
                     //we temparatyly add fixed category as the time is running out
                     CategoryId = _dbContext.Categories.FirstOrDefault().CategoryId
 
@@ -138,7 +139,7 @@ namespace ramenHouse.Controllers
 
                 //add allergies into the meal's allergy's collection
 
-                foreach(int allergyId in mealCreateForm.AllergyIds)
+                foreach (int allergyId in mealCreateForm.AllergyIds)
                 {
                     Allergy newAllergy = _dbContext.Allergies.Find(allergyId);
                     if (newAllergy != null)
@@ -157,38 +158,43 @@ namespace ramenHouse.Controllers
             else
             {
 
-            return RedirectToAction("MealCreate");
+                return RedirectToAction("MealCreate");
             }
 
         }
 
         [HttpPost]
         public IActionResult MealDelete([FromBody] int id)
-       {
+        {
             //int.TryParse(id, out int mealId);
             var meal = _dbContext.Meals.Find(id);
             if (meal != null)
             {
                 var imgPath = meal.ImgUrl;
-                var absoluteImgPath = Path.Combine(_env.WebRootPath, imgPath.TrimStart('/').Replace("/","\\"));
-                if (System.IO.File.Exists(absoluteImgPath))
-                    
+                //we dont want to delete the placeholder image
+                if (imgPath != AppConstants.placeHolderImgUrl)
                 {
-                    try
-                    {
 
-                    System.IO.File.Delete(absoluteImgPath);
-                    Console.WriteLine($"{absoluteImgPath} is deleted successfully");
-                    }
-                        
-                    catch ( Exception ex )
+                    var absoluteImgPath = Path.Combine(_env.WebRootPath, imgPath.TrimStart('/').Replace("/", "\\"));
+                    if (System.IO.File.Exists(absoluteImgPath))
+
                     {
-                        Console.WriteLine($"An error occurred while deleting the file: {ex.Message}");
+                        try
+                        {
+
+                            System.IO.File.Delete(absoluteImgPath);
+                            Console.WriteLine($"{absoluteImgPath} is deleted successfully");
+                        }
+
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An error occurred while deleting the file: {ex.Message}");
+                        }
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"file {imgPath} is not found");
+                    else
+                    {
+                        Console.WriteLine($"file {imgPath} is not found");
+                    }
                 }
 
                 _dbContext.Meals.Remove(meal);
@@ -196,8 +202,8 @@ namespace ramenHouse.Controllers
 
                 return Ok(new { status = 200, message = "Meal deleted successfully", success = true });
             }
-               
-                return NotFound(new { status = 404, message = "Meal not found", error = true });
+
+            return NotFound(new { status = 404, message = "Meal not found", error = true });
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿
+﻿@using ramenHouse.Data
+@using ramenHouse.ViewModels
+
+@model HomeViewModel
 
 
 <section id="hero-section" class="grid-cols-4 grid-rows-4 m-auto grid w-full md:w-10/12 xl:w-8/12">
@@ -12,11 +15,11 @@
         
     </div>  
     <div class="col-start-4 col-span-1 row-start-1 row-span-2">
-    <img src="/imgs/placeholder-image.jpg" id="pic-right-up"  class="h-full w-full rounded-lg object-contain shadow-sm"></img>
+    <img src="@AppConstants.placeHolderImgUrl" id="pic-right-up"  class="h-full w-full rounded-lg object-contain shadow-sm"></img>
 
     </div>
     <div class="col-start-3 col-span-1 row-start-3 row-span-2">
-        <img src="/imgs/placeholder-image.jpg" id="pic-left-down" class="h-full w-full rounded-lg object-contain shadow-sm"></img>
+        <img src="@AppConstants.placeHolderImgUrl" id="pic-left-down" class="h-full w-full rounded-lg object-contain shadow-sm"></img>
 
     </div>
     <div class="col-start-1 col-span-2 row-start-3 row-span-2 ml-8 w-fit self-start justify-self-start">
@@ -29,23 +32,23 @@
     <p class="text-center">Our featured <span class="text-yellow-700">selections</span> </p>
     <div id="dish-img-mosaic" class="grid-cols-12 grid-rols-12 grid gap-2">
         <div class="col-start-1 col-end-4 row-start-4 row-end-10 border">
-            <img src="/imgs//placeholder-image.jpg" alt="Alternate Text" class="h-full w-full border object-contain"/>
+            <img src="@Model.featuredMealImgs[0]" alt="Alternate Text" class="h-full w-full border object-cover" />
         </div>
         <div class="col-start-4 col-end-7 row-start-3 row-end-7">
-            <img src="/imgs//placeholder-image.jpg" alt="Alternate Text" class="h-full w-full border object-contain" />
+            <img src="@Model.featuredMealImgs[1]" alt="Alternate Text" class="h-full w-full border object-cover" />
         </div>
         
         <div class="col-start-7 col-end-11 row-start-2 row-end-7">
-            <img src="/imgs//placeholder-image.jpg" alt="Alternate Text" class="h-full w-full border object-contain" />
+            <img src="@Model.featuredMealImgs[2]" alt="Alternate Text" class="h-full w-full border object-cover" />
         </div>
         <div class="col-start-11 row-start-5 row-end-7 col-end-13">
-            <img src="/imgs//placeholder-image.jpg" alt="Alternate Text" class="h-full w-full border object-contain" />
+            <img src="@Model.featuredMealImgs[3]" alt="Alternate Text" class="h-full w-full border object-cover" />
         </div>
         <div class="col-start-4 col-end-10 row-start-7 row-end-12">
-            <img src="/imgs//placeholder-image.jpg" alt="Alternate Text" class="h-full w-full border object-contain" />
+            <img src="@Model.featuredMealImgs[4]" alt="Alternate Text" class="h-full w-full border object-cover" />
         </div>
         <div class="col-start-10 row-start-7 row-end-10 col-end-13">
-            <img src="/imgs//placeholder-image.jpg" alt="Alternate Text" class="h-full w-full border object-contain" />
+            <img src="@Model.featuredMealImgs[5]" alt="Alternate Text" class="h-full w-full border object-cover" />
         </div>
 
 
@@ -61,13 +64,13 @@
     <p class="text-center">Daily special  Offers</p>
     <div class="flex justify-around">
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
-            <img src="/imgs/placeholder-image.jpg"  class="h-full w-full object-contain"/>
+            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
         </div>
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
-            <img src="/imgs/placeholder-image.jpg"  class="h-full w-full object-contain"/>
+            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
         </div>
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
-            <img src="/imgs/placeholder-image.jpg"  class="h-full w-full object-contain"/>
+            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
         </div>
 
     </div>
@@ -76,7 +79,7 @@
 <section id="about" class="mx-auto my-32 w-full md:w-10/12 xl:w-8/12">
     <div class="flex items-center justify-around">
         <div class="aspect-square w-3/12 overflow-hidden rounded-full border">
-            <img src="/imgs/placeholder-image.jpg" class="h-full w-full object-contain"/>
+            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
         </div>
         <div class="w-6/12">
             <p>
