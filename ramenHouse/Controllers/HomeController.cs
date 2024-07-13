@@ -22,7 +22,8 @@ namespace ramenHouse.Controllers
 
         public IActionResult Index()
         {
-            var featuredMealImgURls = _DbContext.Meals.Where(e => e.IsFeatured).OrderBy(meal=>meal.CreationTime).Select(meal => meal.ImgUrl).Take(6).ToList();
+            
+            var featuredMealImgURls = _DbContext.Meals.Where(e => e.IsFeatured).OrderByDescending(meal => meal.CreationTime).Select(meal => meal.ImgUrl).Take(6).ToList();
 
 
 

@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ramenHouse.Data;
 using ramenHouse.FormModels;
 using ramenHouse.Models;
 using ramenHouse.ViewModels;
+using ramenHouse.ViewModels.Admin;
 
 namespace ramenHouse.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
@@ -22,6 +25,28 @@ namespace ramenHouse.Controllers
         }
 
 
+        //var source = meals.Select(meal =>
+        //{
+        //    var salePrice = meal.BasePrice * (1 - meal.Discount);
+        //    return
+        //    new
+        //    {
+        //        mealId = meal.MealId,
+        //        dishName = meal.Title,
+        //        description = meal.Description,
+        //        imageUrl = meal.ImageUrl,
+        //        rating = meal.Rating,
+        //        allergies = meal.AllergiesLong,
+        //        basePrice = meal.BasePrice,
+        //        discount = meal.Discount,
+        //        salePrice = salePrice,
+        //        isFeatured = meal.IsFeatured,
+
+        //        deleteId = meal.MealId
+
+        //    };
+        //});
+
 
         public IActionResult Index()
         {
@@ -33,18 +58,20 @@ namespace ramenHouse.Controllers
 
             foreach (var meal in meals)
             {
-                var mealViewModel = new MealViewModel()
+                var mealViewModel = new AdminMealViewModel()
                 {
                     MealId = meal.MealId,
-                    Title = meal.Title,
+                    DishName = meal.Title,
                     Description = meal.Description,
                     ImageUrl = meal.ImgUrl,
                     Rating = meal.Rating,
-                    AllergiesLong = string.Join(",", meal.Allergies.Select(e => e.Name)),
-                    IsFeatured = meal.IsFeatured,
+                    Allergies = string.Join(",", meal.Allergies.Select(e => e.Name)),
                     BasePrice = meal.BasePrice,
                     Discount = meal.Discount,
+                    SalePrice = meal.BasePrice * (1 - meal.Discount),
+                    IsFeatured = meal.IsFeatured,
 
+                    DeleteId = meal.MealId,
                 };
 
 
@@ -61,23 +88,38 @@ namespace ramenHouse.Controllers
         [HttpPost]
         public IActionResult MealUpdate([FromBody] UpdateMealFormModel form)
         {
-            var mealId = form.mealId;
-            Meal meal = _dbContext.Meals.Find(mealId);
+
+            if (ModelState.IsValid)
+            {
+
+
+                var mealId = form.MealId;
+                
+
+                    Meal meal = _dbContext.Meals.Find(mealId);
 
 
 
-            meal.Title = form.dishName;
-            meal.Description = form.description;
-            meal.ImgUrl = form.imageUrl;
-            meal.Rating = form.rating;
-            meal.BasePrice = form.basePrice;
-            meal.Discount = form.discount;
-            meal.IsFeatured = form.isFeatured;
-            _dbContext.SaveChanges();
+                    meal.Title = form.DishName;
+                    meal.Description = form.Description;
+                    meal.ImgUrl = form.ImageUrl;
+                    meal.Rating = form.Rating;
+                    meal.BasePrice = form.BasePrice;
+                    meal.Discount = form.Discount;
+                    meal.IsFeatured = form.IsFeatured;
+                    _dbContext.SaveChanges();
 
 
 
-            return RedirectToAction("Index");
+                
+            return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+            
+
         }
 
         [HttpGet]

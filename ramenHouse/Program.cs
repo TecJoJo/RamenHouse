@@ -11,9 +11,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlite(b
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Login";
+        options.LoginPath = "/Authentication";
         options.AccessDeniedPath = "/";
-        options.LogoutPath = "/Login";
+        options.LogoutPath = "/Logout";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
         options.Cookie.Name = "Ramen_House_Auth";
     }
