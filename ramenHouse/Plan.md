@@ -15,7 +15,7 @@
 	- [X] client side convert the types 
 
 
-[ ] loading on list fetching and menu fetching 
+[ X ] loading on list fetching and menu fetching 
 [ ] list on allergy 
 [ ] creation on allergy within an hidden div on the first line 
 [ ] list on category 

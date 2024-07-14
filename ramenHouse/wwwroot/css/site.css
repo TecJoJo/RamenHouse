@@ -53,6 +53,17 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.create-model{
+    position: absolute;
+    left: 50%;
+    top: 10rem;
+    transform: translateX(-50%);
+
+    width: 15rem;
+    height: 15rem;
+    z-index:100;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 }

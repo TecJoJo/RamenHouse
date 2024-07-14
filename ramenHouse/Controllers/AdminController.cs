@@ -25,27 +25,7 @@ namespace ramenHouse.Controllers
         }
 
 
-        //var source = meals.Select(meal =>
-        //{
-        //    var salePrice = meal.BasePrice * (1 - meal.Discount);
-        //    return
-        //    new
-        //    {
-        //        mealId = meal.MealId,
-        //        dishName = meal.Title,
-        //        description = meal.Description,
-        //        imageUrl = meal.ImageUrl,
-        //        rating = meal.Rating,
-        //        allergies = meal.AllergiesLong,
-        //        basePrice = meal.BasePrice,
-        //        discount = meal.Discount,
-        //        salePrice = salePrice,
-        //        isFeatured = meal.IsFeatured,
-
-        //        deleteId = meal.MealId
-
-        //    };
-        //});
+      
 
 
         public IActionResult Index()
@@ -246,6 +226,25 @@ namespace ramenHouse.Controllers
             }
 
             return NotFound(new { status = 404, message = "Meal not found", error = true });
+        }
+
+        //[HttpGet("/admin/allergiesList")]
+        public IActionResult AllergiesList()
+        {
+            var allergies = _dbContext.Allergies.ToList();
+            List<AllergyViewModel> AllergiesListViewModel = new List<AllergyViewModel>();  
+            foreach(var allergy in allergies)
+            {
+                AllergiesListViewModel.Add(new AllergyViewModel()
+                {
+                    
+                    Name = allergy.Name,
+                    Abbreviation = allergy.Abbreviation,
+                    DeleteId = allergy.AllergyId,
+                }); 
+            }
+
+            return View(AllergiesListViewModel);
         }
     }
 }

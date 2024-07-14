@@ -2,32 +2,7 @@
 
 @model AdminViewModel
 
- @{/*
 
-     var meals = Model.meals;
-
-     var source = meals.Select(meal =>
-     {
-         var salePrice = meal.BasePrice * (1 - meal.Discount);
-         return
-         new
-         {
-             mealId = meal.MealId,
-             dishName = meal.Title,
-             description = meal.Description,
-             imageUrl = meal.ImageUrl,
-             rating = meal.Rating,
-             allergies = meal.AllergiesLong,
-             basePrice = meal.BasePrice,
-             discount = meal.Discount,
-             salePrice = salePrice,
-             isFeatured = meal.IsFeatured,
-
-             deleteId = meal.MealId
-
-         };
-     });
- */}
 <a href="admin/mealcreate"><button type="button" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><h1>Create Meal</h1></button></a>
 <div class="h-16"></div>
 <div id="meals-management"></div>
@@ -38,6 +13,6 @@
     <script>
         const source = @Html.Raw(Json.Serialize(Model.meals))
     </script>
-    <script src="/js/guiGridControl.js"></script>
+    <script src="/js/admin/mealsList.js"></script>
 }
 

@@ -1,0 +1,31 @@
+﻿@using ramenHouse.ViewModels.Admin
+@model List<AllergyViewModel>
+
+
+
+<div id="create-new-allergy-model" class="create-model rounded border bg-blue-400">
+    <form class="h-full w-full">
+        <label for="allergy-name">
+            Allergy Name
+        </label>
+        <input id="allergy-name" name="name" type="text"/>
+        <label for="allergy-abbreviation">
+            Allergy Name
+        </label>
+        <input id="allergy-abbreviation" name="abbreviation" type="text"/>
+    </form>
+
+</div>
+<button id="create-allergy-toggle" type="button" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><h1>Create Allergy</h1></button>
+<div id="allergies-management"></div>
+
+
+
+
+@section Scripts {
+    <script src="/lib/jquery.gui-grid.js"></script>
+    <script>
+        const source = @Html.Raw(Json.Serialize(Model))
+    </script>
+    <script src="/js/admin/allergiesList.js"></script>
+}
