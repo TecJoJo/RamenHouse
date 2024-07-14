@@ -1,9 +1,10 @@
-﻿    @using ramenHouse.ViewModels
-@model MenuViewModel
+﻿@model List<string>
 
 @{
-    var filters = new List<string>(Model.Categories);
+    var filters = new List<string>(Model);
     filters.Insert(0, "All");
+
+
 }
 
 <div id="menu-section-container" class="m-auto w-full md:w-10/12 xl:w-8/12">
@@ -17,39 +18,17 @@
             </div>
         }
     </div>
-    @if (Model.Meals.Count > 0)
-    {
+    <div id="menu-loading" class="loading-container" >
+        <img src="/imgs/application/Hourglass.gif" alt="loading state indicator" />
+    </div>
+    <div id="menu-content-container"></div>
 
-        <div id="menu-grid-container" class="grid-cols-3 grid gap-3">
-
-            @foreach (var meal in Model.Meals)
-            {
-                <a href="Menu/Detail/@meal.MealId">
-
-                    <div id="grid-item" class="card-height flex flex-col border shadow-md">
-                        <div class="h-3/5">
-                            <img src="@meal.ImageUrl" class="h-full w-full object-cover"  />
-                       </div> 
-                        <div class="grid-cols-6 m-3 grid h-2/5">
-                            <h1 class="col-span-4">@meal.Title</h1>
-                            <h1 class="col-span-2">@meal.Rating</h1>
-                            <h1 class="col-span-6 row-span-2">@meal.Description</h1>
-                            <h1 class="col-span-3">@(meal.BasePrice) €</h1>
-                            <h1 class="col-span-3">@meal.AllergiesShort</h1>
-                        </div>
-                    </div>
-                </a>
-            }
-
-
-
-
-
-
-        </div>
-    }
-    else
-    {
-        <h1 class="text-center font-mono text-3xl text-yellow-700">Oops! We could't find any result</h1>
-    }
+ 
 </div>
+
+@section Scripts{
+    <script>
+        const category = @Html.Raw(Json.Serialize(ViewData["category"] ?? ""));
+    </script>
+    <script src="/js/menu/fetchMenuList.js" ></script>
+}

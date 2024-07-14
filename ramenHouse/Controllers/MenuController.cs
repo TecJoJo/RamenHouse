@@ -17,31 +17,42 @@ namespace ramenHouse.Controllers
 
         public IActionResult Index(string? category)
         {
+            var categories = _dbContext.Categories.Select(e => e.Name).ToList();
+
+            ViewData["category"] = category;
+
+            return View(categories);
+        }
+
+        [HttpGet("/menu/GetMenuList/{category?}")]
+        public IActionResult GetMenuList(string? category)
+        {
             //filter the meals based on the category 
             var meals = new List<Meal>();
-            if (category ==null || category == "All")
+            if (category == null || category == "All")
             {
 
-            meals = _dbContext.Meals.Include(m => m.Allergies).ToList(); //meals with all the allergy properties
+                meals = _dbContext.Meals.Include(m => m.Allergies).ToList(); //meals with all the allergy properties
             }
             else
             {
 
-            meals = _dbContext.Meals.Include(m => m.Category).Where(e => e.Category.Name == category).ToList();
+                meals = _dbContext.Meals.Include(m => m.Category).Where(e => e.Category.Name == category).ToList();
             }
 
 
+
+
+
+
+
             
+            var menuList = new List<MealViewModel>();
 
 
 
-
-            var categories = _dbContext.Categories.Select(e=>e.Name).ToList();
-            var menuViewModel = new MenuViewModel();
-
-
-           
-            foreach (var meal in meals){
+            foreach (var meal in meals)
+            {
                 var mealViewModel = new MealViewModel()
                 {
                     MealId = meal.MealId,
@@ -55,17 +66,17 @@ namespace ramenHouse.Controllers
 
 
 
-                menuViewModel.Meals.Add(mealViewModel);
+                menuList.Add(mealViewModel);
             }
-                menuViewModel.Categories = categories;
+           
 
 
 
-            
 
-            
 
-            return View(menuViewModel);
+
+
+            return PartialView("~/Views/Menu/_menuList.cshtml",menuList);
         }
 
         public IActionResult Detail(int id)
