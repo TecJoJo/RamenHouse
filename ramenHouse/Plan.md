@@ -11,8 +11,16 @@
 [ X ] default value include place holder the when user doesn't support picture
 [ X ] featured section pictures dynamically based on the featured field
 [ X ] Host project online
-[] daily special offer pictures dynamically based on discount 
-[] BUG:  grid edit form submitted with null
-	- [ ] client side convert the types 
-	- [ ] drop down on isFeatured
-	- [ ] backend validation on list change
+[  ] BUG:  grid edit form submitted with null
+	- [X] client side convert the types 
+
+
+[ ] loading on list fetching and menu fetching 
+[ ] list on allergy 
+[ ] creation on allergy within an hidden div on the first line 
+[ ] list on category 
+[ ] creation on category 
+
+[ ] drop down on isFeatured
+[ ] backend validation on list change
+[ ] daily special offer pictures dynamically based on discount 
