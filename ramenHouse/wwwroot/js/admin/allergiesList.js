@@ -33,12 +33,12 @@ const grid = $('#allergies-management').guiGrid({
 
 
 createAllergybtn = document.getElementById("create-allergy-toggle")
-createNewAllergyModel = document.getElementById("create-new-allergy-model")
+createNewAllergyModel = document.getElementById("create-new-allergy-form")
 
 createAllergybtn.addEventListener("click", () => {
-    if (createNewAllergyModel.style.display === "block") {
-        createNewAllergyModel.style.display = "none";
+    if (createNewAllergyModel.style.height === "48px") {
+        createNewAllergyModel.style.height = "0px";
     } else {
-        createNewAllergyModel.style.display = "block";
+        createNewAllergyModel.style.height = "48px";
     }
 });

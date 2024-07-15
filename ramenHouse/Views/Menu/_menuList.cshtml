@@ -1,4 +1,4 @@
-﻿@using ramenHouse.ViewModels
+﻿    @using ramenHouse.ViewModels
 @model List<MealViewModel>
 
 
@@ -35,5 +35,7 @@
 }
 else
 {
-    <h1 class="text-center font-mono text-3xl text-yellow-700">Oops! We could't find any result</h1>
+  <div class="flex min-h-96 flex-col justify-center">
+        <h1 class="text-center font-mono text-3xl text-yellow-700">Oops! We could't find any result </h1>
+  </div>  
 }
