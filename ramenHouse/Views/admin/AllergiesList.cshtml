@@ -4,8 +4,8 @@
 
 
 <button id="create-allergy-toggle" type="button" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><h1>Create Allergy</h1></button>
-<div id="create-new-allergy-form" class="toggle-form-container w-full">
-    <form class="create-form-container">
+<div id="create-new-allergy-form" class="toggle-form-container mb-4 mt-4 w-full overflow-hidden">
+    <form  class="create-form-container" id="create-allergy-form">
         <div >
 
         <label for="allergy-name">
@@ -16,12 +16,12 @@
         <div >
 
         <label for="allergy-abbreviation">
-            Allergy Name
+                abbreviation
         </label>
             <input id="allergy-abbreviation" name="abbreviation" type="text" class="ml-4 border-b border-yellow-700 focus:outline-0 focus:border" />
         </div>
         <div >
-            <button onClick="deleteMeal(${value})" type="button" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Create</button>
+            <button type="submit" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Create</button>
 
         </div>
     </form>

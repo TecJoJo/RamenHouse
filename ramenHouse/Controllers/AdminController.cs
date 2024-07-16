@@ -246,5 +246,29 @@ namespace ramenHouse.Controllers
 
             return View(AllergiesListViewModel);
         }
+
+
+        [HttpPost]
+        public IActionResult AllergyCreate(CreateAllergyFormModel createAllergyForm)
+        {
+            if(ModelState.IsValid)
+            {
+                var newAllergy = new Allergy()
+                {
+                    Name = createAllergyForm.Name,
+                    Abbreviation = createAllergyForm.Abbreviation,
+                };
+
+                _dbContext.Allergies.Add(newAllergy);
+                _dbContext.SaveChanges();
+
+                return Ok(new { message="New allergy has been added", data= createAllergyForm });
+            }
+            else
+            {
+
+            return BadRequest(new { message = "Invalid form", data = createAllergyForm });
+            }
+        }
     }
 }
