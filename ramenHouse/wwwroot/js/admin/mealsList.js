@@ -26,8 +26,26 @@ const grid = $('#meals-management').guiGrid({
         },
         {
             header: "Allergies",
-            field: "allergies",
-            width:200
+            field: "allergiesEditInfo",
+            width: 200,
+            view: function (allergiesEditInfo) {
+                console.log(allergiesEditInfo)
+                return (
+
+                    `
+                    <div>
+                    <p>${allergiesEditInfo.allergyAbbreviations}</p>
+                    <button type="button" data-id="${allergiesEditInfo.mealId}" id="inlineAllergyEditButton">Edit</button>
+                    </div>
+                    `
+
+                )
+
+            },
+            cellEditing: {
+                enabled: false
+            },
+
         },
         {
             header: "Base Price",
@@ -137,5 +155,21 @@ function deleteMeal(deleteId) {
                 console.error(data.message);
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error:', event));
 }
+
+document.getElementById("meals-management").addEventListener("click",allergyInlineEdit)
+
+
+function allergyInlineEdit(e) {
+    if (e.target && e.target.id === "inlineAllergyEditButton") {
+        //we send an request to backend and let backend to render us an
+        //form based on the allergy id
+
+    }
+
+    
+
+}
+
+

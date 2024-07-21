@@ -7,6 +7,5 @@ namespace ramenHouse.ViewModels
     {
         public List<AdminMealViewModel> meals { get; set; } = new List<AdminMealViewModel>();
 
-       
     }
 }

@@ -11,7 +11,7 @@
 
         public int Rating { get; set; }
 
-        public string Allergies { get; set; } = string.Empty;
+        public AllergiesInlineEditViewModel AllergiesEditInfo { get; set; } = new AllergiesInlineEditViewModel();
 
         public decimal BasePrice { get; set; }
 

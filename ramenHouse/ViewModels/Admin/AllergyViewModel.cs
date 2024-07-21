@@ -7,7 +7,7 @@ namespace ramenHouse.ViewModels.Admin
         public string Name { get; set; }
 
         public string Abbreviation { get; set; }
-        public int DeleteId { get; set; }
+        public int? DeleteId { get; set; }
 
     }
 }

@@ -33,11 +33,27 @@ namespace ramenHouse.Controllers
 
             var adminViewModel = new AdminViewModel();
             var meals = _dbContext.Meals.Include(m => m.Allergies).ToList(); //meals with all the allergy properties
-
+            var allAllergies = _dbContext.Allergies.ToList();  
 
 
             foreach (var meal in meals)
             {
+                //var allergyViewModels = new List<AllergyViewModel>();
+                var mealAllergies = meal.Allergies;
+
+                //foreach(var mealAllegy in mealAllergies)
+                //{
+                //    allergyViewModels.Add(new AllergyViewModel()
+                //    {
+                //        Name = mealAllegy.Name,
+                //        Abbreviation = mealAllegy.Abbreviation,
+                //        DeleteId = mealAllegy.AllergyId,
+
+                //    });
+                //}
+
+                var allergiesAbbrSting = String.Join(",",mealAllergies.Select(m => m.Abbreviation));
+
                 var mealViewModel = new AdminMealViewModel()
                 {
                     MealId = meal.MealId,
@@ -45,7 +61,11 @@ namespace ramenHouse.Controllers
                     Description = meal.Description,
                     ImageUrl = meal.ImgUrl,
                     Rating = meal.Rating,
-                    Allergies = string.Join(",", meal.Allergies.Select(e => e.Name)),
+                    AllergiesEditInfo = new AllergiesInlineEditViewModel()
+                    {
+                        allergyAbbreviations = allergiesAbbrSting,
+                        mealId = meal.MealId,
+                    },
                     BasePrice = meal.BasePrice,
                     Discount = meal.Discount,
                     SalePrice = meal.BasePrice * (1 - meal.Discount),
@@ -56,8 +76,18 @@ namespace ramenHouse.Controllers
 
 
 
+
                 adminViewModel.meals.Add(mealViewModel);
             }
+
+            //foreach(var allergy in allergies)
+            //{
+            //    var allergyViewModel = new AllergyViewModel()
+            //    {
+            //        Name = allergy.Name,
+            //        Abbreviation = allergy.Abbreviation,
+            //    };
+            //}
 
 
 
@@ -395,6 +425,36 @@ namespace ramenHouse.Controllers
                 return Ok(new { message = "category is deleted", data = categoryToDelete });
             }
             else { return BadRequest(new { message = "category not found", data = new { categoryToDelete = id } }); }
+        }
+
+        [HttpGet]
+        public IActionResult getMealAllergiesEditForm(int id) {
+        
+            if(id != 0)
+            {
+                var meal = _dbContext.Meals.Include(m=>m.Allergies).FirstOrDefault(m=>m.MealId == id);
+                
+                var allergies = meal.Allergies.ToList();
+
+                var mealAllergiesEditFormViewModel = new MealAllergiesEditFormViewModel();
+
+                mealAllergiesEditFormViewModel.mealId = id;
+
+                foreach(var item in allergies)
+                {
+                    mealAllergiesEditFormViewModel.mealAllergies.Add(new AllergyViewModel()
+                    {
+                        Abbreviation = item.Abbreviation,
+                        Name = item.Name,
+
+                    });
+                }
+                return PartialView("_MealAllergiesEditForm",mealAllergiesEditFormViewModel);
+            }
+            else
+            {
+                return BadRequest(new { message = "Meal not found" });
+            }
         }
     }
 
