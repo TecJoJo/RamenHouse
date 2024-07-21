@@ -2,7 +2,9 @@
 {
     public class MealAllergiesEditFormViewModel
     {
-        public int mealId { get; set; } 
-        public List<AllergyViewModel> mealAllergies { get; set; } = new List<AllergyViewModel>();   
+
+        public int MealId { get; set; } 
+        public List<AllergyViewModel> MealAllergies { get; set; } = new List<AllergyViewModel>();
+        public List<AllergyViewModel>? AllAllergies { get; set; } = new List<AllergyViewModel>();
     }
 }

@@ -1,6 +1,22 @@
 ﻿@using ramenHouse.ViewModels.Admin
 @model MealAllergiesEditFormViewModel
 
-<div>
-    hello world 
-</div>
+<form class="edit-form-container" id="edit-meal-allergies-form">
+    @foreach (var mealAllergy in Model.AllAllergies!)
+    {
+        bool isChecked = Model.MealAllergies.Where(a => a.DeleteId == mealAllergy.DeleteId).Count() > 0;
+
+        <div>
+            <label>@mealAllergy.Name (@mealAllergy.Abbreviation)</label>
+            @if (isChecked)
+            {
+                <input type="checkbox" checked />
+            }
+            else
+            {
+                <input type="checkbox" />
+            }
+        </div>
+    }
+</form>
+

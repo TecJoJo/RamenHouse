@@ -432,21 +432,34 @@ namespace ramenHouse.Controllers
         
             if(id != 0)
             {
+                var allAllergies = _dbContext.Allergies.ToList();   
+
                 var meal = _dbContext.Meals.Include(m=>m.Allergies).FirstOrDefault(m=>m.MealId == id);
                 
                 var allergies = meal.Allergies.ToList();
 
                 var mealAllergiesEditFormViewModel = new MealAllergiesEditFormViewModel();
 
-                mealAllergiesEditFormViewModel.mealId = id;
+                mealAllergiesEditFormViewModel.MealId = id;
 
                 foreach(var item in allergies)
                 {
-                    mealAllergiesEditFormViewModel.mealAllergies.Add(new AllergyViewModel()
+                    mealAllergiesEditFormViewModel.MealAllergies.Add(new AllergyViewModel()
                     {
                         Abbreviation = item.Abbreviation,
                         Name = item.Name,
+                        DeleteId = item.AllergyId,
 
+                    });
+                }
+
+                foreach (var item in allAllergies)
+                {
+                    mealAllergiesEditFormViewModel.AllAllergies.Add(new AllergyViewModel()
+                    {
+                        Abbreviation = item.Abbreviation,
+                        Name = item.Name,
+                        DeleteId = item?.AllergyId,
                     });
                 }
                 return PartialView("_MealAllergiesEditForm",mealAllergiesEditFormViewModel);

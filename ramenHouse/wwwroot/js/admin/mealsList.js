@@ -163,9 +163,34 @@ document.getElementById("meals-management").addEventListener("click",allergyInli
 
 function allergyInlineEdit(e) {
     if (e.target && e.target.id === "inlineAllergyEditButton") {
+
+        const editMealAllergiesFormContainer = document.getElementById("edit-meal-allergies-form")
         //we send an request to backend and let backend to render us an
         //form based on the allergy id
+        const mealId = e.target.dataset.id
+        console.log(mealId)
+        fetch(`admin/getMealAllergiesEditForm/${mealId}`)
+            .then((response) => {
+            if (response.ok) {
+                //as i am creating backend on my own, i know backend will return 
+                //json data wrapping the validation info
+                response.text().then((html) => {
+                    //remove the old html form the container 
+                    editMealAllergiesFormContainer.innerHTML = ""
+                    //put the new fetched html into the html container 
+                    editMealAllergiesFormContainer.innerHTML = html
+                    editMealAllergiesFormContainer.style.height = "96px"
+                })
 
+            }
+            else {
+                //we can display some error message here
+
+                console.log("backend error!!!")
+            }
+        }).catch(
+            error => console.log("Error!!!", error)
+        )
     }
 
     
