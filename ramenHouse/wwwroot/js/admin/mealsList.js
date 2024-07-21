@@ -26,7 +26,8 @@ const grid = $('#meals-management').guiGrid({
         },
         {
             header: "Allergies",
-            field: "allergies"
+            field: "allergies",
+            width:200
         },
         {
             header: "Base Price",

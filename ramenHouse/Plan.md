@@ -16,10 +16,8 @@
 
 
 [ X ] loading on list fetching and menu fetching 
-[ ] list on allergy 
-[ ] creation on allergy within an hidden div on the first line 
-[ ] list on category 
-[ ] creation on category 
+[ x ] category and allergy management 
+[ ] manage table can manage allergy and category 
 
 [ ] drop down on isFeatured
 [ ] backend validation on list change

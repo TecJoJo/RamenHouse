@@ -1,11 +1,18 @@
-﻿@using ramenHouse.ViewModels
+﻿    @using ramenHouse.ViewModels
 
 @model AdminViewModel
 
 
 <a href="admin/mealcreate"><button type="button" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><h1>Create Meal</h1></button></a>
+<div>
+
+<a href="admin/allergiesList"><button type="button" class="rounded-full border bg-yellow-600 px-4 py-2 text-white hover:bg-yellow-700"><h1>Manage Allergies</h1></button></a>
+    <a href="admin/categoriesList"><button type="button" class="rounded-full border bg-yellow-600 px-4 py-2 text-white hover:bg-yellow-700"><h1>Manage Categories</h1></button></a>
+</div>
+
 <div class="h-16"></div>
 <div id="meals-management"></div>
+
 
 
 @section Scripts {

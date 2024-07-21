@@ -1,13 +1,13 @@
-const grid = $('#allergies-management').guiGrid({
+const grid = $('#categories-management').guiGrid({
     columns: [
-       
+
         {
-            header: "Allergy Name",
+            header: "Category Name",
             field: "name"
         },
         {
-            header: "Allergy Abbr.",
-            field: "abbreviation"
+            header: "Category description",
+            field: "description"
         },
 
         {
@@ -16,7 +16,7 @@ const grid = $('#allergies-management').guiGrid({
 
             view: function (value) {
                 return `
-    <button onClick="deleteAllergy(${value})" type="button" class="rounded-full border bg-red-900 px-4 py-2 text-white hover:bg-red-700">Delete</button>
+    <button onClick="deleteCategory(${value})" type="button" class="rounded-full border bg-red-900 px-4 py-2 text-white hover:bg-red-700">Delete</button>
     `
             },
             cellEditing: {
@@ -27,32 +27,32 @@ const grid = $('#allergies-management').guiGrid({
     ],
     source: source,
     cellEditing: true,
-    onSourceEdit: editAllergy,
+    onSourceEdit: editCategory,
 });
 
-//toggle new allergy form 
 
-createAllergybtn = document.getElementById("create-allergy-toggle")
-createNewAllergyModel = document.getElementById("create-new-allergy-form")
+createCategorybtn = document.getElementById("create-category-toggle")
+createNewCategoryModel = document.getElementById("create-new-category-form")
 
-createAllergybtn.addEventListener("click", () => {
-    if (createNewAllergyModel.style.height === "48px") {
-        createNewAllergyModel.style.height = "0px";
+createCategorybtn.addEventListener("click", () => {
+    if (createNewCategoryModel.style.height === "48px") {
+        createNewCategoryModel.style.height = "0px";
     } else {
-        createNewAllergyModel.style.height = "48px";
+        createNewCategoryModel.style.height = "48px";
     }
 });
 
 
-//send http request on creating new allergy
-const createAllergyForm = document.getElementById("create-allergy-form")
-createAllergyForm.addEventListener("submit", submitCreateAllergyFrom)
+//send http request on creating new Category
+const createCategoryForm = document.getElementById("create-category-form")
+createCategoryForm.addEventListener("submit", submitCreateCategoryFrom)
 
-function submitCreateAllergyFrom(e) {
+function submitCreateCategoryFrom(e) {
     const formData = new FormData(this)
     e.preventDefault()
-    fetch("/admin/allergyCreate", {
+    fetch("/admin/CategoryCreate", {
         method: "POST",
+       
         body: formData,
     }).then((response) => {
         if (response.ok) {
@@ -62,7 +62,7 @@ function submitCreateAllergyFrom(e) {
                 console.log(res)
                 window.location.reload()
             })
-           
+
         }
         else {
             //we can display some error message here
@@ -75,17 +75,17 @@ function submitCreateAllergyFrom(e) {
 }
 
 
-function editAllergy(e) {
+function editCategory(e) {
 
     console.log("the source is edit", e.after)
     console.log("the source is edit", e.before)
 
     const data = e.after
 
-   
 
 
-    fetch("/Admin/AllergyUpdate", {
+
+    fetch("/Admin/CategoryUpdate", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -109,27 +109,10 @@ function editAllergy(e) {
     }).catch(
         error => console.log("Error!!!", error)
     )
-
-
-
-
-
-    //console.log("grid", grid)
-    //const newSource = source.map((meal) => {
-    //    if (meal.mealId === e.after.mealId) {
-    //        mealModified = e.after
-    //        mealModified.salePrice = mealModified.basePrice * (1 - mealModified.discount)
-    //        return mealModified
-    //    }
-    //    return meal
-    //});
-    //grid.setSource(newSource)
-
 }
 
-
-function deleteAllergy(deleteId) {
-    fetch("/admin/AllergyDelete", {
+function deleteCategory(deleteId) {
+    fetch("/admin/CategoryDelete", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

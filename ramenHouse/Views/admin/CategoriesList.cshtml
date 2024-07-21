@@ -1,0 +1,43 @@
+﻿@using ramenHouse.ViewModels.Admin
+@model List<CategoryViewModel>
+
+
+
+
+
+<button id="create-category-toggle" type="button" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><h1>Create category</h1></button>
+<div id="create-new-category-form" class="toggle-form-container mb-4 mt-4 w-full overflow-hidden">
+    <form  class="create-form-container" id="create-category-form">
+        <div >
+
+        <label for="category-name">
+            category Name
+        </label>
+        <input id="category-name" name="name" type="text" class="ml-4 border-b border-yellow-700 focus:outline-0 focus:border"/>
+        </div>
+        <div >
+
+        <label for="category-description">
+                description
+        </label>
+            <input id="category-description" name="description" type="text" class="ml-4 border-b border-yellow-700 focus:outline-0 focus:border" />
+        </div>
+        <div >
+            <button type="submit" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Create</button>
+
+        </div>
+    </form>
+
+</div>
+<div id="categories-management"></div>
+
+
+
+
+@section Scripts {
+    <script src="/lib/jquery.gui-grid.js"></script>
+    <script>
+        const source = @Html.Raw(Json.Serialize(Model))
+    </script>
+    <script src="/js/admin/categoriesList.js"></script>
+}

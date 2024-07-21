@@ -270,5 +270,133 @@ namespace ramenHouse.Controllers
             return BadRequest(new { message = "Invalid form", data = createAllergyForm });
             }
         }
+        [HttpPost]
+        public IActionResult AllergyUpdate([FromBody]UpdateAllergyFormModel updateAllergyForm)
+        {
+            if(ModelState.IsValid)
+            {
+                //we use the deleteId to track the entity to be update
+                var allergyToUpdate = _dbContext.Allergies.Find(updateAllergyForm.DeleteId);
+
+                if(allergyToUpdate != null)
+                {
+                    allergyToUpdate.Name = updateAllergyForm.Name;  
+                    allergyToUpdate.Abbreviation = updateAllergyForm.Abbreviation;
+
+                    _dbContext.SaveChanges();
+                    return Ok(new {message = "Allergy is updated", data= allergyToUpdate });
+                }
+                else
+                {
+                    return BadRequest(new {message="allergy is not found",  data= updateAllergyForm });
+                }
+
+            }
+            else
+            {
+                return BadRequest(new { message = "allergy is not found", data = updateAllergyForm });
+            }
+        }
+
+
+
+        [HttpPost]
+        public IActionResult AllergyDelete([FromBody] int id)
+        {
+           var allergyToDelete = _dbContext.Allergies.Find(id);
+            if (allergyToDelete != null) { 
+                _dbContext.Allergies.Remove(allergyToDelete); 
+                _dbContext.SaveChanges();   
+                return Ok(new {message="allergy is deleted",data= allergyToDelete});
+            }
+            else { return BadRequest(new { message = "allergy not found", data = new { allergyToDelete = id } }); }
+        }
+
+
+        public IActionResult CategoriesList() {
+        
+            var categoriesList = new List<CategoryViewModel>();
+            var categories = _dbContext.Categories;
+
+            foreach (var category in categories)
+            {
+                categoriesList.Add(new CategoryViewModel
+                {
+                    Name = category.Name,
+                    Description = category.Description,
+                    DeleteId = category.CategoryId,
+                });
+            }
+
+            return View(categoriesList);    
+        }
+
+        [HttpPost]
+        
+        public IActionResult CategoryCreate(CreateCategoryFormModelcs createCategoryForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var newCategory = new Category()
+                {
+                    Name = createCategoryForm.Name,
+                    Description = createCategoryForm.Description??"",
+                };
+
+                _dbContext.Categories.Add(newCategory);
+                _dbContext.SaveChanges();
+
+                return Ok(new { message = "New category has been added", data = createCategoryForm });
+            }
+            else
+            {
+
+                return BadRequest(new { message = "Invalid form", data = createCategoryForm });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult CategoryUpdate([FromBody] UpdateCategoryFormModel updateCategoryForm)
+        {
+            if (ModelState.IsValid)
+            {
+                //we use the deleteId to track the entity to be update
+                var categoryToUpdate = _dbContext.Categories.Find(updateCategoryForm.DeleteId);
+
+                if (categoryToUpdate != null)
+                {
+                    categoryToUpdate.Name = updateCategoryForm.Name;
+                    categoryToUpdate.Description = updateCategoryForm.Description;
+
+                    _dbContext.SaveChanges();
+                    return Ok(new { message = "Category is updated", data = categoryToUpdate });
+                }
+                else
+                {
+                    return BadRequest(new { message = "category is not found", data = updateCategoryForm });
+                }
+
+            }
+            else
+            {
+                return BadRequest(new { message = "allergy is not found", data = updateCategoryForm });
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult CategoryDelete([FromBody] int id)
+        {
+            var categoryToDelete = _dbContext.Categories.Find(id);
+            if (categoryToDelete != null)
+            {
+                _dbContext.Categories.Remove(categoryToDelete);
+                _dbContext.SaveChanges();
+                return Ok(new { message = "category is deleted", data = categoryToDelete });
+            }
+            else { return BadRequest(new { message = "category not found", data = new { categoryToDelete = id } }); }
+        }
     }
+
+
 }
