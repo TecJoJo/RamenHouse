@@ -32,23 +32,35 @@
     <p class="text-center">Our featured <span class="text-yellow-700">selections</span> </p>
     <div id="dish-img-mosaic" class="grid-cols-12 grid-rols-12 grid gap-2">
         <div class="col-start-1 col-end-4 row-start-4 row-end-10 border">
-            <img src="@Model.featuredMealImgs[0]" alt="Alternate Text" class="h-full w-full border object-cover" />
+            <a href="@(Model.featuredMeals[0].MealId != null ? $"menu/detail/{Model.featuredMeals[0].MealId}" : "")">
+                <img src="@Model.featuredMeals[0].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+            </a>
         </div>
         <div class="col-start-4 col-end-7 row-start-3 row-end-7">
-            <img src="@Model.featuredMealImgs[1]" alt="Alternate Text" class="h-full w-full border object-cover" />
+            <a href="@(Model.featuredMeals[1].MealId != null ? $"menu/detail/{Model.featuredMeals[1].MealId}" : "")">
+            <img src="@Model.featuredMeals[1].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+            </a>
         </div>
         
         <div class="col-start-7 col-end-11 row-start-2 row-end-7">
-            <img src="@Model.featuredMealImgs[2]" alt="Alternate Text" class="h-full w-full border object-cover" />
+            <a href="@(Model.featuredMeals[2].MealId != null ? $"menu/detail/{Model.featuredMeals[2].MealId}" : "")">
+            <img src="@Model.featuredMeals[2].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+            </a>
         </div>
         <div class="col-start-11 row-start-5 row-end-7 col-end-13">
-            <img src="@Model.featuredMealImgs[3]" alt="Alternate Text" class="h-full w-full border object-cover" />
+            <a href="@(Model.featuredMeals[3].MealId != null ? $"menu/detail/{Model.featuredMeals[3].MealId}" : "")">
+            <img src="@Model.featuredMeals[3].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+            </a>
         </div>
         <div class="col-start-4 col-end-10 row-start-7 row-end-12">
-            <img src="@Model.featuredMealImgs[4]" alt="Alternate Text" class="h-full w-full border object-cover" />
+            <a href="@(Model.featuredMeals[4].MealId != null ? $"menu/detail/{Model.featuredMeals[4].MealId}" : "")">
+            <img src="@Model.featuredMeals[4].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+            </a>
         </div>
         <div class="col-start-10 row-start-7 row-end-10 col-end-13">
-            <img src="@Model.featuredMealImgs[5]" alt="Alternate Text" class="h-full w-full border object-cover" />
+            <a href="@(Model.featuredMeals[5].MealId != null ? $"menu/detail/{Model.featuredMeals[5].MealId}" : "")">
+            <img src="@Model.featuredMeals[5].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+            </a>
         </div>
 
 
@@ -64,13 +76,19 @@
     <p class="text-center">Daily special  Offers</p>
     <div class="flex justify-around">
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
-            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
+            <a href="@(Model.onSellMeals[0].MealId != null ? $"menu/detail/{Model.onSellMeals[0].MealId}" : "")">
+            <img src="@Model.onSellMeals[0].ImageUrl" class="h-full w-full object-cover" />
+            </a>
         </div>
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
-            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
+            <a href="@(Model.onSellMeals[1].MealId != null ? $"menu/detail/{Model.onSellMeals[1].MealId}" : "")">
+            <img src="@Model.onSellMeals[1].ImageUrl" class="h-full w-full object-cover" />
+            </a>
         </div>
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
-            <img src="@AppConstants.placeHolderImgUrl" class="h-full w-full object-contain" />
+            <a href="@(Model.onSellMeals[2].MealId != null ? $"menu/detail/{Model.onSellMeals[2].MealId}" : "")">
+            <img src="@Model.onSellMeals[2].ImageUrl" class="h-full w-full object-cover" />
+            </a>
         </div>
 
     </div>

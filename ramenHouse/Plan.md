@@ -17,8 +17,14 @@
 
 [ X ] loading on list fetching and menu fetching 
 [ x ] category and allergy management 
-[ ] manage table can manage allergy and category 
+[x ] manage table can manage allergy and category 
+[x ] daily special offer pictures dynamically based on discount 
+
+[x ] home page when click on the correspond meal picure will lead to the detail back 
+[ ] price should display sell price 
+[ ]	possibity to update the categories 
+[ ] detail pack styling 
+[ ] font-styling 
 
 [ ] drop down on isFeatured
 [ ] backend validation on list change
-[ ] daily special offer pictures dynamically based on discount 

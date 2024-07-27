@@ -4,6 +4,7 @@ namespace ramenHouse.ViewModels
 {
     public class HomeViewModel
     {
-        public List<string> featuredMealImgs = new List<string>();
+        public List<MealViewModel> featuredMeals = new List<MealViewModel>();
+        public List<MealViewModel> onSellMeals = new List<MealViewModel>();
     }
 }
