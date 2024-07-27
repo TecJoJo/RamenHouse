@@ -16,11 +16,11 @@
                         <img src="@meal.ImageUrl" class="h-full w-full object-cover" />
                     </div>
                     <div class="grid-cols-6 m-3 grid h-2/5">
-                        <h1 class="col-span-4">@meal.Title</h1>
-                        <h1 class="col-span-2">@meal.Rating</h1>
-                        <h1 class="col-span-6 row-span-2">@meal.Description</h1>
-                        <h1 class="col-span-3">@(meal.BasePrice) €</h1>
-                        <h1 class="col-span-3">@meal.AllergiesShort</h1>
+                        <h6 class="col-span-4">@meal.Title</h6>
+                        <h6 class="col-span-2">@meal.Rating</h6>
+                        <p class="col-span-6 row-span-4 truncate text-wrap">@meal.Description</p>
+                        <h6 class="col-span-3">@(meal.BasePrice) €</h6>
+                        <h6 class="col-span-3">@meal.AllergiesShort</h6>
                     </div>
                 </div>
             </a>

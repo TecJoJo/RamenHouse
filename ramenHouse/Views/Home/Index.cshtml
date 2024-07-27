@@ -29,7 +29,7 @@
 </section>
 
 <section id="featured-selections" class="mx-auto my-32 w-full md:w-11/12 xl:w-9/12">
-    <p class="text-center">Our featured <span class="text-yellow-700">selections</span> </p>
+    <h1 class="text-center">Our featured <span class="text-yellow-700">selections</span> </h1>
     <div id="dish-img-mosaic" class="grid-cols-12 grid-rols-12 grid gap-2">
         <div class="col-start-1 col-end-4 row-start-4 row-end-10 border">
             <a href="@(Model.featuredMeals[0].MealId != null ? $"menu/detail/{Model.featuredMeals[0].MealId}" : "")">
@@ -73,7 +73,7 @@
 </section>
 
 <section id="special-offer" class="mx-auto my-32 w-full md:w-10/12 xl:w-8/12">
-    <p class="text-center">Daily special  Offers</p>
+    <h1 class="mb-4 text-center">Daily special <span class="text-yellow-700">Offers</span></h1>
     <div class="flex justify-around">
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
             <a href="@(Model.onSellMeals[0].MealId != null ? $"menu/detail/{Model.onSellMeals[0].MealId}" : "")">
