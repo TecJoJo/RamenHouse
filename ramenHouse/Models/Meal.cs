@@ -1,5 +1,6 @@
 ﻿    using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ramenHouse.Models
 {
@@ -26,7 +27,7 @@ namespace ramenHouse.Models
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
-
+        [JsonIgnore]
         public ICollection<Allergy> Allergies { get; set; } = new List<Allergy>();
 
         public bool IsFeatured { get; set; }

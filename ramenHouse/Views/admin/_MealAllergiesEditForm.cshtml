@@ -1,7 +1,7 @@
 ﻿@using ramenHouse.ViewModels.Admin
 @model MealAllergiesEditFormViewModel
 
-<form class="edit-form-container" id="edit-meal-allergies-form">
+<form action="/admin/submitMealAllergiesEditForm" method="POST" class="edit-form-container" id="edit-meal-allergies-form">
     @foreach (var mealAllergy in Model.AllAllergies!)
     {
         bool isChecked = Model.MealAllergies.Where(a => a.DeleteId == mealAllergy.DeleteId).Count() > 0;
@@ -10,13 +10,15 @@
             <label>@mealAllergy.Name (@mealAllergy.Abbreviation)</label>
             @if (isChecked)
             {
-                <input type="checkbox" checked />
+                <input type="checkbox" name="AllergyIds" value="@mealAllergy.DeleteId" checked />
             }
             else
             {
-                <input type="checkbox" />
+                <input type="checkbox" name="AllergyIds" value="@mealAllergy.DeleteId" />
             }
         </div>
     }
+        <input type="hidden" name="mealId" value="@Model.MealId"/>
+    <button type="submit" class="rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><h1>Confirm Change</h1></button>
 </form>
 

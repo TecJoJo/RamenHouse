@@ -469,6 +469,43 @@ namespace ramenHouse.Controllers
                 return BadRequest(new { message = "Meal not found" });
             }
         }
+
+        [HttpPost]
+        public IActionResult submitMealAllergiesEditForm(EditMealAllergiesFormModel editMealAllergiesForm)
+        {
+            if(ModelState.IsValid) {
+                var mealToUpdate = _dbContext.Meals.Include(m=>m.Allergies).FirstOrDefault(m=>m.MealId == editMealAllergiesForm.MealId); 
+                var allAllergies = _dbContext.Allergies.ToList();
+                if(mealToUpdate == null)
+                {
+                    return NotFound(new { message = "meal to edit is not found", data = editMealAllergiesForm });
+                }
+                else
+                {
+
+                }
+                {
+                    mealToUpdate.Allergies.Clear();
+                    foreach(var allergyId in editMealAllergiesForm.AllergyIds)
+                    {
+                        var parsedAllergyId = int.Parse(allergyId);
+                        var allergyToAdd = allAllergies.Where(a => a.AllergyId == parsedAllergyId).ToList()?[0];
+                        if(allergyToAdd != null)
+                        {
+                            mealToUpdate.Allergies.Add(allergyToAdd);
+                        }
+                    }
+                    _dbContext.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
+            }
+            else
+            {
+                return BadRequest(new { message = "invalid form", data = editMealAllergiesForm });
+            }
+
+        }
     }
 
 

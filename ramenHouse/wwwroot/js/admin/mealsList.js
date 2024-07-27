@@ -33,9 +33,9 @@ const grid = $('#meals-management').guiGrid({
                 return (
 
                     `
-                    <div>
-                    <p>${allergiesEditInfo.allergyAbbreviations}</p>
-                    <button type="button" data-id="${allergiesEditInfo.mealId}" id="inlineAllergyEditButton">Edit</button>
+                    <div class="flex w-full items-center">
+                    <p class="flex-initial">${allergiesEditInfo.allergyAbbreviations}</p>
+                    <button type="button" class="flex-initial ml-auto rounded-full border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" data-id="${allergiesEditInfo.mealId}" id="inlineAllergyEditButton">Edit</button>
                     </div>
                     `
 
