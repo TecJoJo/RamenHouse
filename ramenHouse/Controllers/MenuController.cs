@@ -92,6 +92,7 @@ namespace ramenHouse.Controllers
                 ImageUrl = meal.ImgUrl,
                 Rating = meal.Rating,
                 BasePrice = meal.BasePrice,
+                Discount = meal.Discount,
                 AllergiesShort = string.Join(" ", meal.Allergies.Select(e => e.Abbreviation)),
                 AllergiesLong = string.Join(" ", meal.Allergies.Select(e => e.Name))
             };
