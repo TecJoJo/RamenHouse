@@ -18,7 +18,6 @@ namespace ramenHouse.ViewModels
         {
             var _context = (ApplicationDbContext)validationContext.GetService(typeof(ApplicationDbContext));
 
-            // Now you can use _context to access your database
             var user = _context.Users.FirstOrDefault(u => u.Email == Email);
 
             if (user == null || user.Password != Password)
