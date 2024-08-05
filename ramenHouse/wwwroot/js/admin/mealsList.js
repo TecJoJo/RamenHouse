@@ -6,7 +6,10 @@ const grid = $('#meals-management').guiGrid({
     columns: [
         {
             header: "Meal ID",
-            field: "mealId"
+            field: "mealId",
+            cellEditing: {
+                enabled:false
+            }
         },
         {
             header: "Dish Name",
@@ -22,7 +25,10 @@ const grid = $('#meals-management').guiGrid({
         },
         {
             header: "Rating",
-            field: "rating"
+            field: "rating",
+            cellEditing: {
+                enabled: false
+            }
         },
         {
             header: "Allergies",
