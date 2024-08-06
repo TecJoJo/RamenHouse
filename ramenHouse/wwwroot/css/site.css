@@ -6,7 +6,6 @@
 
 html {
     font-size: 14px;
-
 }
 
 @media (min-width: 768px) {
@@ -23,21 +22,26 @@ h1, h2, h3, h4, h5, h6 {
     font-style: normal;
 }
 
-h1{
-    font-size: 3rem !important ;
+h1 {
+    font-size: 3rem !important;
 }
+
 h2 {
     font-size: 2.5rem !important;
 }
+
 h3 {
     font-size: 2rem !important;
 }
+
 h4 {
     font-size: 1.75rem !important;
 }
+
 h5 {
     font-size: 1.5rem !important;
 }
+
 h6 {
     font-size: 1.25rem !important;
 }
@@ -131,33 +135,32 @@ body {
     border: 2px solid #98c6d4;
 }
 
-.create-form-container > div {
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
-    height: 48px;
-    border-left: 2px solid #98c6d4;
-    display: flex;
-    align-items: center;
-}
+    .create-form-container > div {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        height: 48px;
+        border-left: 2px solid #98c6d4;
+        display: flex;
+        align-items: center;
+    }
 
 
 
-.create-form-container > :first-child {
-    border-left: none;
-}
+    .create-form-container > :first-child {
+        border-left: none;
+    }
 
-.create-form-container label {
-    padding-left: 12px;
-}
+    .create-form-container label {
+        padding-left: 12px;
+    }
 
 .edit-form-container {
     display: flex;
     width: 100%;
     height: 48px;
     border: 2px solid #98c6d4;
-    justify-content:start;
-    
+    justify-content: start;
 }
 
     .edit-form-container > div {
@@ -171,14 +174,12 @@ body {
         border-right: dashed #98c6d4 1px;
     }
 
-    
+
     .edit-form-container label {
-        
         margin-right: 1rem;
-        flex:1 1 auto;
-        
-        
+        flex: 1 1 auto;
     }
+
     .edit-form-container input {
         padding-right: 1rem;
         transform: scale(1.5);
@@ -186,10 +187,26 @@ body {
         flex: 1 1 auto;
     }
 
+#menu-text-container {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1fr 4fr 1fr;
+    height: 40%;
+}
 
-    /* Extra small devices (phones, 600px and down) */
-    @media only screen and (max-width: 600px) {
-    }
+
+
+.truncate-four-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -197,6 +214,7 @@ body {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

@@ -37,7 +37,9 @@
         <input type="number" id="BasePrice" name="BasePrice">
 
         <label for="Discount">Discount:</label>
-        <input type="number" id="Discount" name="Discount">
+        <input type="text" id="Discount" name="Discount" >
+
+       
 
         @foreach (var allergy in allergies)
         {
@@ -67,3 +69,15 @@
     </form>
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var discountInput = document.getElementById('Discount');
+        if (discountInput) {
+            discountInput.addEventListener('input', function () {
+                this.value = this.value.replace(',', '.');
+            });
+        }
+    });
+</script>
+

@@ -22,7 +22,16 @@
 
 [x ] home page when click on the correspond meal picure will lead to the detail back 
 [x ] font-styling 
-[ ] price should display sell price 
+[x ] price should display sell price 
+
+
+
+[]Memu UI and Detail UI modification 
+[]Discount on meal creation 
+[]anti forgery token 
+
+
+
 [ ]	possibity to update the categories 
 [ ] detail pack styling 
 

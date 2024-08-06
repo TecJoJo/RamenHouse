@@ -10,7 +10,7 @@ namespace ramenHouse.Models
         public int MealId { get; set; }
         public string Title { get; set; }
 
-        public string Description { get; set; } 
+        public string? Description { get; set; } 
 
         public string ImgUrl { get; set; }  
 
