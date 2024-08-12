@@ -11,7 +11,7 @@ namespace ramenHouse.FormModels
         
         public decimal BasePrice { get; set; }
         
-        public float Discount { get; set; } = 0;
+        public decimal Discount { get; set; } 
         public List<int> AllergyIds { get; set; } = new List<int>();
         
         public string? Description { get; set; } = string.Empty;

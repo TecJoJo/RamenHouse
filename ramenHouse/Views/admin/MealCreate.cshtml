@@ -41,13 +41,16 @@
 
        
 
+        <div class="flex flex-col">
+
         @foreach (var allergy in allergies)
         {
             <label for="@allergy.AllergyId">@allergy.Name</label>
 
-            <br>
+            
             <input type="checkbox" id="@allergy.AllergyId" name="AllergyIds" value="@allergy.AllergyId">
         }
+        </div>
 
 
         <label for="description">Description:</label><br>
@@ -64,8 +67,8 @@
                        name="imgFile" />
             </dd>
         </dl>
-
-        <button type="submit">submit</button>
+        <button id="create-allergy-toggle" type="submit" class="mb-4 mt-4 rounded border bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"><p>Submit</p></button>
+        
     </form>
 
 </div>
