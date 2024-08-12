@@ -184,7 +184,9 @@ namespace ramenHouse.Controllers
                     CreationTime = DateTime.Now,
                     IsFeatured = mealCreateForm.IsFeatured,
                     //we temparatyly add fixed category as the time is running out
-                    CategoryId = _dbContext.Categories.FirstOrDefault().CategoryId
+                    CategoryId = _dbContext.Categories.FirstOrDefault().CategoryId,
+                    Discount = mealCreateForm.Discount,
+                    
 
 
                 };
