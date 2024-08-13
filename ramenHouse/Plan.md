@@ -26,14 +26,17 @@
 
 
 
-[]Memu UI and Detail UI modification 
-[]Discount on meal creation 
+[X]Memu UI and Detail UI modification 
+[X]Discount on meal creation 
+[ ]Icons
+[ ]Contact page 
+[]https://www.jqueryscript.net/slider/Fully-Responsive-Flexible-jQuery-Carousel-Plugin-slick.html
 []anti forgery token 
 
 
 
 [ ]	possibity to update the categories 
-[ ] detail pack styling 
+
 
 [ ] drop down on isFeatured
 [ ] backend validation on list change
