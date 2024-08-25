@@ -6,16 +6,16 @@
 
 <section id="hero-section" class="grid-cols-4 grid-rows-4 m-auto grid w-full md:w-10/12 xl:w-8/12">
     <div id="hero-text" class="col-span-3 row-span-2 self-center">
-        
-        
+
+
 
         <p>Etiam lobortis est id nisl dignissim porttitor vitae ac augue. Food</p>
         <p>Where Each Plate Weaves a Story of Culinary Mastery and Passionate Craftsmanship</p>
-       
-        
-    </div>  
+
+
+    </div>
     <div class="col-start-4 col-span-1 row-start-1 row-span-2">
-    <img src="@AppConstants.placeHolderImgUrl" id="pic-right-up"  class="h-full w-full rounded-lg object-contain shadow-sm"></img>
+        <img src="@AppConstants.placeHolderImgUrl" id="pic-right-up" class="h-full w-full rounded-lg object-contain shadow-sm"></img>
 
     </div>
     <div class="col-start-3 col-span-1 row-start-3 row-span-2">
@@ -25,7 +25,7 @@
     <div class="col-start-1 col-span-2 row-start-3 row-span-2 ml-8 w-fit self-start justify-self-start">
         <button type="button" class="rounded-full border bg-yellow-700 px-4 py-2 text-white">Click to try</button>
     </div>
-    
+
 </section>
 
 <section id="featured-selections" class="mx-auto my-32 w-full md:w-11/12 xl:w-9/12">
@@ -38,28 +38,28 @@
         </div>
         <div class="col-start-4 col-end-7 row-start-3 row-end-7">
             <a href="@(Model.featuredMeals[1].MealId != null ? $"menu/detail/{Model.featuredMeals[1].MealId}" : "")">
-            <img src="@Model.featuredMeals[1].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+                <img src="@Model.featuredMeals[1].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
             </a>
         </div>
-        
+
         <div class="col-start-7 col-end-11 row-start-2 row-end-7">
             <a href="@(Model.featuredMeals[2].MealId != null ? $"menu/detail/{Model.featuredMeals[2].MealId}" : "")">
-            <img src="@Model.featuredMeals[2].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+                <img src="@Model.featuredMeals[2].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
             </a>
         </div>
         <div class="col-start-11 row-start-5 row-end-7 col-end-13">
             <a href="@(Model.featuredMeals[3].MealId != null ? $"menu/detail/{Model.featuredMeals[3].MealId}" : "")">
-            <img src="@Model.featuredMeals[3].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+                <img src="@Model.featuredMeals[3].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
             </a>
         </div>
         <div class="col-start-4 col-end-10 row-start-7 row-end-12">
             <a href="@(Model.featuredMeals[4].MealId != null ? $"menu/detail/{Model.featuredMeals[4].MealId}" : "")">
-            <img src="@Model.featuredMeals[4].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+                <img src="@Model.featuredMeals[4].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
             </a>
         </div>
         <div class="col-start-10 row-start-7 row-end-10 col-end-13">
             <a href="@(Model.featuredMeals[5].MealId != null ? $"menu/detail/{Model.featuredMeals[5].MealId}" : "")">
-            <img src="@Model.featuredMeals[5].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
+                <img src="@Model.featuredMeals[5].ImageUrl" alt="Alternate Text" class="h-full w-full border object-cover" />
             </a>
         </div>
 
@@ -67,8 +67,8 @@
 
     </div>
 
-   
-    
+
+
 
 </section>
 
@@ -77,17 +77,17 @@
     <div class="flex justify-around">
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
             <a href="@(Model.onSellMeals[0].MealId != null ? $"menu/detail/{Model.onSellMeals[0].MealId}" : "")">
-            <img src="@Model.onSellMeals[0].ImageUrl" class="h-full w-full object-cover" />
+                <img src="@Model.onSellMeals[0].ImageUrl" class="h-full w-full object-cover" />
             </a>
         </div>
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
             <a href="@(Model.onSellMeals[1].MealId != null ? $"menu/detail/{Model.onSellMeals[1].MealId}" : "")">
-            <img src="@Model.onSellMeals[1].ImageUrl" class="h-full w-full object-cover" />
+                <img src="@Model.onSellMeals[1].ImageUrl" class="h-full w-full object-cover" />
             </a>
         </div>
         <div class="border-8 card-aspect-ratio w-1/4 border-yellow-700">
             <a href="@(Model.onSellMeals[2].MealId != null ? $"menu/detail/{Model.onSellMeals[2].MealId}" : "")">
-            <img src="@Model.onSellMeals[2].ImageUrl" class="h-full w-full object-cover" />
+                <img src="@Model.onSellMeals[2].ImageUrl" class="h-full w-full object-cover" />
             </a>
         </div>
 
@@ -110,4 +110,27 @@
     </div>
 
 </section>
-    
+
+<section id="how-to-find-us" class="mx-auto my-32 flex w-full flex-col items-stretch md:flex-row md:w-10/12 xl:w-8/12">
+    <div id="general-contact-info" class="md-center-text-in-flex flex-auto-0-basis flex flex-col items-center md:items-start">
+
+        <div id="contact-info-header">
+            <h2>HOW TO <span class="text-yellow-700">FIND US</span></h2>
+            <small class="block w-3/5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et viverra mauris. Duis fringilla elementum.</small>
+
+        </div>
+        <div id="contact-info-content">
+
+            <p>Kaartokatu 2, 11100 Riihimäki</p>
+            <p>+358410123458</p>
+            <p>Mon-Fri <span class="teaColorFilter2">8.00-16.00</span></p>
+            <p>Sat <span class="teaColorFilter2">8.00-16.00</span></p>
+            <p>Sat <span class="text-yellow-700">Closed</span></p>
+        </div>
+    </div>
+    <div id="map" style="width:500px;height:500px" class="mapFilter flex-auto-0-basis mx-auto"></div>
+</section>
+
+@section Scripts {
+    <script src="/lib/openLayers/index-sGuhCFvB.js"></script>
+}
