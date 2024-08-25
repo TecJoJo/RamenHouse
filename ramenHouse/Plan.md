@@ -11,7 +11,7 @@
 [ X ] default value include place holder the when user doesn't support picture
 [ X ] featured section pictures dynamically based on the featured field
 [ X ] Host project online
-[  ] BUG:  grid edit form submitted with null
+[ x ] BUG:  grid edit form submitted with null
 	- [X] client side convert the types 
 
 
@@ -28,10 +28,14 @@
 
 [X]Memu UI and Detail UI modification 
 [X]Discount on meal creation 
-[ ]Icons
-[ ]Contact page 
-[]https://www.jqueryscript.net/slider/Fully-Responsive-Flexible-jQuery-Carousel-Plugin-slick.html
-[]anti forgery token 
+[x]Icons
+[x]Contact page 
+[x]https://www.jqueryscript.net/slider/Fully-Responsive-Flexible-jQuery-Carousel-Plugin-slick.html
+[x]anti forgery token 
+
+[]update doc
+[]update code base
+[]responsiveness
 
 
 

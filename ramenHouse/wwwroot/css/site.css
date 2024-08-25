@@ -48,7 +48,7 @@ h6 {
 
 small {
     font-size: 0.875rem !important;
-    color: #4A4A4A;
+    
 }
 
 
@@ -58,7 +58,7 @@ p {
     font-optical-sizing: auto;
     font-weight: 350;
     font-style: normal;
-    color: #4A4A4A;
+    
 }
 
 .montaga-regular {
@@ -95,7 +95,11 @@ p {
 }
 
 .mapFilter {
-    filter: grayscale(80%);
+    filter: grayscale(30%);
+}
+
+.dimmer {
+    filter: brightness(0.9) contrast(0.9) saturate(0.9);
 }
 
 
@@ -225,21 +229,20 @@ body {
 }
 
 
-#contact-info-header{
-    flex:1;
+#contact-info-header {
+    flex: 1;
 }
 
-#contact-info-content{
-    
-    flex:4;
+#contact-info-content {
+    flex: 4;
     display: flex;
-    flex-direction:column;
-    justify-content:center;
-    width:70%;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
 }
 
-.flex-auto-0-basis{
-    flex:1 1 500px;
+.flex-auto-0-basis {
+    flex: 1 1 500px;
 }
 
 
@@ -253,7 +256,6 @@ body {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-   
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -263,5 +265,3 @@ body {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 }
-
-
