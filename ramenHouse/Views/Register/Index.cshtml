@@ -1,0 +1,36 @@
+﻿@model ramenHouse.FormModels.RegisterFormModel
+<div class="flex items-center justify-center min-h-screen bg-yellow-50">
+    <form method="post" asp-action="Register" asp-controller="Authentication" id="register-container" class="flex flex-col items-center justify-around rounded-xl border bg-white shadow-md w-full md:w-6/12 xl:w-4/12 p-8" asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly" class="text-red-600 flex-auto"></div>
+        <h1>Register</h1>
+        <div class="flex w-full flex-col items-center">
+            <div class="my-2 flex w-9/12 flex-col">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" class="rounded border" name="FirstName" required />
+            </div>
+            <div class="my-2 flex w-9/12 flex-col">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" class="rounded border" name="LastName" required />
+            </div>
+            <div class="my-2 flex w-9/12 flex-col">
+                <label for="register-email">Email Address</label>
+                <input type="email" id="register-email" class="rounded border" name="Email" required />
+            </div>
+            <div class="my-2 flex w-9/12 flex-col">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" class="rounded border" name="Password" required />
+                <span asp-validation-for="Password" class="text-red-600"></span>
+            </div>
+            <div class="my-2 flex w-9/12 flex-col">
+                <label for="register-confirm-password">Confirm Password</label>
+                <input type="password" id="register-confirm-password" class="rounded border" name="ConfirmPassword" required />
+                <span asp-validation-for="ConfirmPassword" class="text-red-600"></span>
+            </div>
+        </div>
+        <button type="submit" class="w-7/12 rounded border bg-yellow-700 py-2 text-white">Register</button>
+        <p class="mt-4 text-sm">
+            Already have an account?
+            <a href="/Authentication/Index" class="text-yellow-700 underline">Login here</a>
+        </p>
+    </form>
+</div>

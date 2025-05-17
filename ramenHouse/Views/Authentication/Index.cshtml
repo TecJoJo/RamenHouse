@@ -7,6 +7,8 @@
     
 
 
+        
+
         <form method="post" asp-action="Login" asp-controller="Authentication" id="login-container" class="relative flex h-3/6 w-full flex-col items-center justify-around rounded-xl border bg-white shadow-md md:w-6/12 xl:w-4/12" asp-antiforgery="true">
 
         <div asp-validation-summary="ModelOnly" class="text-red-600"></div>
@@ -32,9 +34,13 @@
 
 
             </div>
-
             <button type="submit" class="w-7/12 rounded border bg-yellow-700 py-2 text-white">Login</button>
+        <a asp-action="Register" asp-controller="Authentication" class="w-7/12 rounded border bg-yellow-700 py-2 text-white text-center">Register</a>
+
         <img src="/imgs/application/chefStickerTransparentBg.png" alt="chef" class="img-overlapping-right-bottom absolute hidden object-contain md:block" style="width:200px;height:200px" />
         </form>
+
+
+
     
 </div>

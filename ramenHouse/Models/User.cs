@@ -6,6 +6,10 @@ namespace ramenHouse.Models
 {
     public class User
     {
+
+        public User() {
+            this.CreatedDate = DateTime.Now;
+        }
         [Key]
         public int UserId { get; set; }
 

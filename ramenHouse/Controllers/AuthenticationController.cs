@@ -7,6 +7,8 @@ using ramenHouse.Models;
 using ramenHouse.ViewModels;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using ramenHouse.FormModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace ramenHouse.Controllers
 {
@@ -33,7 +35,7 @@ namespace ramenHouse.Controllers
         public async Task<IActionResult> Login(UserViewModel loginForm)
         {
 
-
+            
 
 
             User? user = _DbContext.Users.FirstOrDefault(e => e.Email == loginForm.Email);
@@ -86,7 +88,47 @@ namespace ramenHouse.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Register()
+        {
+            return View("~/Views/Register/Index.cshtml");
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterFormModel registerForm)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Return the view with validation errors
+                return View("~/Views/Register/Index.cshtml", registerForm);
+            }
+
+            //we check the email if it exists
+            if (_DbContext.Users.Any(e => e.Email == registerForm.Email)) {
+                ModelState.AddModelError("Email", "Email already exisit");
+                // Return the view with validation errors
+                return View("~/Views/Register/Index.cshtml", registerForm);
+            }
+
+            //create the User instance
+            var newUser = new User { 
+                Email = registerForm.Email,
+                FirstName = registerForm.FirstName,
+                LastName = registerForm.LastName,
+                
+            };
+            //we hash the password and store it into the database 
+            var hasher = new PasswordHasher<User>();
+            string hashedPassword = hasher.HashPassword(newUser, registerForm.Password);
+
+            newUser.Password = hashedPassword;
+
+            _DbContext.Add(newUser);
+            _DbContext.SaveChanges();   
 
 
+            return RedirectToAction("index", "Authentication");
+        }
     }
 }
