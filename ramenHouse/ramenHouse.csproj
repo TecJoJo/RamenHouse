@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Attributes\" />
     <Folder Include="ViewModels\Menu\" />
     <Folder Include="wwwroot\imgs\mealImages\" />
   </ItemGroup>
