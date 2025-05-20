@@ -4,6 +4,11 @@ A modern, user-friendly web application built with **ASP.NET Core MVC**, designe
 
 ---
 
+## 🚀 Deployment
+
+This application is deployed on Azure Web Services.  
+You can try it live here: [Live Demo](https://ramenhouse-fcfudqg8eya5ehf5.swedencentral-01.azurewebsites.net/)
+
 ## 🚀 Features
 
 ### 👥 User Authentication
