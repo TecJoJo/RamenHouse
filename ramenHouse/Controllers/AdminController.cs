@@ -508,6 +508,22 @@ namespace ramenHouse.Controllers
             }
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> cleanAllMeals()
+        {
+
+            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM AllergyMeal");
+            int mealsDeleted = await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM Meals");
+
+            return Ok(new
+            {
+                success = true,
+                message = "Database cleaned successfully",
+                deletedMeals = mealsDeleted
+            });
+        }
+
     }
 
 
