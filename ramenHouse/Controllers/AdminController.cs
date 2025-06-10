@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,10 @@ using ramenHouse.FormModels;
 using ramenHouse.Models;
 using ramenHouse.ViewModels;
 using ramenHouse.ViewModels.Admin;
+using System;
+using System.IO;
+
+
 
 namespace ramenHouse.Controllers
 {
@@ -25,7 +30,7 @@ namespace ramenHouse.Controllers
         }
 
 
-      
+
 
 
         public IActionResult Index()
@@ -33,7 +38,7 @@ namespace ramenHouse.Controllers
 
             var adminViewModel = new AdminViewModel();
             var meals = _dbContext.Meals.Include(m => m.Allergies).ToList(); //meals with all the allergy properties
-            var allAllergies = _dbContext.Allergies.ToList();  
+            var allAllergies = _dbContext.Allergies.ToList();
 
 
             foreach (var meal in meals)
@@ -52,7 +57,7 @@ namespace ramenHouse.Controllers
                 //    });
                 //}
 
-                var allergiesAbbrSting = String.Join(",",mealAllergies.Select(m => m.Abbreviation));
+                var allergiesAbbrSting = String.Join(",", mealAllergies.Select(m => m.Abbreviation));
 
                 var mealViewModel = new AdminMealViewModel()
                 {
@@ -104,31 +109,31 @@ namespace ramenHouse.Controllers
 
 
                 var mealId = form.MealId;
-                
-
-                    Meal meal = _dbContext.Meals.Find(mealId);
 
 
-
-                    meal.Title = form.DishName;
-                    meal.Description = form.Description;
-                    meal.ImgUrl = form.ImageUrl;
-                    meal.Rating = form.Rating;
-                    meal.BasePrice = form.BasePrice;
-                    meal.Discount = form.Discount;
-                    meal.IsFeatured = form.IsFeatured;
-                    _dbContext.SaveChanges();
+                Meal meal = _dbContext.Meals.Find(mealId);
 
 
 
-                
-            return Ok();
+                meal.Title = form.DishName;
+                meal.Description = form.Description;
+                meal.ImgUrl = form.ImageUrl;
+                meal.Rating = form.Rating;
+                meal.BasePrice = form.BasePrice;
+                meal.Discount = form.Discount;
+                meal.IsFeatured = form.IsFeatured;
+                _dbContext.SaveChanges();
+
+
+
+
+                return Ok();
             }
             else
             {
                 return BadRequest();
             }
-            
+
 
         }
 
@@ -186,7 +191,7 @@ namespace ramenHouse.Controllers
                     //we temparatyly add fixed category as the time is running out
                     CategoryId = _dbContext.Categories.FirstOrDefault().CategoryId,
                     Discount = mealCreateForm.Discount,
-                    
+
 
 
                 };
@@ -264,16 +269,16 @@ namespace ramenHouse.Controllers
         public IActionResult AllergiesList()
         {
             var allergies = _dbContext.Allergies.ToList();
-            List<AllergyViewModel> AllergiesListViewModel = new List<AllergyViewModel>();  
-            foreach(var allergy in allergies)
+            List<AllergyViewModel> AllergiesListViewModel = new List<AllergyViewModel>();
+            foreach (var allergy in allergies)
             {
                 AllergiesListViewModel.Add(new AllergyViewModel()
                 {
-                    
+
                     Name = allergy.Name,
                     Abbreviation = allergy.Abbreviation,
                     DeleteId = allergy.AllergyId,
-                }); 
+                });
             }
 
             return View(AllergiesListViewModel);
@@ -283,7 +288,7 @@ namespace ramenHouse.Controllers
         [HttpPost]
         public IActionResult AllergyCreate(CreateAllergyFormModel createAllergyForm)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var newAllergy = new Allergy()
                 {
@@ -294,33 +299,33 @@ namespace ramenHouse.Controllers
                 _dbContext.Allergies.Add(newAllergy);
                 _dbContext.SaveChanges();
 
-                return Ok(new { message="New allergy has been added", data= createAllergyForm });
+                return Ok(new { message = "New allergy has been added", data = createAllergyForm });
             }
             else
             {
 
-            return BadRequest(new { message = "Invalid form", data = createAllergyForm });
+                return BadRequest(new { message = "Invalid form", data = createAllergyForm });
             }
         }
         [HttpPost]
-        public IActionResult AllergyUpdate([FromBody]UpdateAllergyFormModel updateAllergyForm)
+        public IActionResult AllergyUpdate([FromBody] UpdateAllergyFormModel updateAllergyForm)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 //we use the deleteId to track the entity to be update
                 var allergyToUpdate = _dbContext.Allergies.Find(updateAllergyForm.DeleteId);
 
-                if(allergyToUpdate != null)
+                if (allergyToUpdate != null)
                 {
-                    allergyToUpdate.Name = updateAllergyForm.Name;  
+                    allergyToUpdate.Name = updateAllergyForm.Name;
                     allergyToUpdate.Abbreviation = updateAllergyForm.Abbreviation;
 
                     _dbContext.SaveChanges();
-                    return Ok(new {message = "Allergy is updated", data= allergyToUpdate });
+                    return Ok(new { message = "Allergy is updated", data = allergyToUpdate });
                 }
                 else
                 {
-                    return BadRequest(new {message="allergy is not found",  data= updateAllergyForm });
+                    return BadRequest(new { message = "allergy is not found", data = updateAllergyForm });
                 }
 
             }
@@ -335,18 +340,20 @@ namespace ramenHouse.Controllers
         [HttpPost]
         public IActionResult AllergyDelete([FromBody] int id)
         {
-           var allergyToDelete = _dbContext.Allergies.Find(id);
-            if (allergyToDelete != null) { 
-                _dbContext.Allergies.Remove(allergyToDelete); 
-                _dbContext.SaveChanges();   
-                return Ok(new {message="allergy is deleted",data= allergyToDelete});
+            var allergyToDelete = _dbContext.Allergies.Find(id);
+            if (allergyToDelete != null)
+            {
+                _dbContext.Allergies.Remove(allergyToDelete);
+                _dbContext.SaveChanges();
+                return Ok(new { message = "allergy is deleted", data = allergyToDelete });
             }
             else { return BadRequest(new { message = "allergy not found", data = new { allergyToDelete = id } }); }
         }
 
 
-        public IActionResult CategoriesList() {
-        
+        public IActionResult CategoriesList()
+        {
+
             var categoriesList = new List<CategoryViewModel>();
             var categories = _dbContext.Categories;
 
@@ -360,11 +367,11 @@ namespace ramenHouse.Controllers
                 });
             }
 
-            return View(categoriesList);    
+            return View(categoriesList);
         }
 
         [HttpPost]
-        
+
         public IActionResult CategoryCreate(CreateCategoryFormModelcs createCategoryForm)
         {
             if (ModelState.IsValid)
@@ -372,7 +379,7 @@ namespace ramenHouse.Controllers
                 var newCategory = new Category()
                 {
                     Name = createCategoryForm.Name,
-                    Description = createCategoryForm.Description??"",
+                    Description = createCategoryForm.Description ?? "",
                 };
 
                 _dbContext.Categories.Add(newCategory);
@@ -430,21 +437,22 @@ namespace ramenHouse.Controllers
         }
 
         [HttpGet]
-        public IActionResult getMealAllergiesEditForm(int id) {
-        
-            if(id != 0)
-            {
-                var allAllergies = _dbContext.Allergies.ToList();   
+        public IActionResult getMealAllergiesEditForm(int id)
+        {
 
-                var meal = _dbContext.Meals.Include(m=>m.Allergies).FirstOrDefault(m=>m.MealId == id);
-                
+            if (id != 0)
+            {
+                var allAllergies = _dbContext.Allergies.ToList();
+
+                var meal = _dbContext.Meals.Include(m => m.Allergies).FirstOrDefault(m => m.MealId == id);
+
                 var allergies = meal.Allergies.ToList();
 
                 var mealAllergiesEditFormViewModel = new MealAllergiesEditFormViewModel();
 
                 mealAllergiesEditFormViewModel.MealId = id;
 
-                foreach(var item in allergies)
+                foreach (var item in allergies)
                 {
                     mealAllergiesEditFormViewModel.MealAllergies.Add(new AllergyViewModel()
                     {
@@ -464,7 +472,7 @@ namespace ramenHouse.Controllers
                         DeleteId = item?.AllergyId,
                     });
                 }
-                return PartialView("_MealAllergiesEditForm",mealAllergiesEditFormViewModel);
+                return PartialView("_MealAllergiesEditForm", mealAllergiesEditFormViewModel);
             }
             else
             {
@@ -475,10 +483,11 @@ namespace ramenHouse.Controllers
         [HttpPost]
         public IActionResult submitMealAllergiesEditForm(EditMealAllergiesFormModel editMealAllergiesForm)
         {
-            if(ModelState.IsValid) {
-                var mealToUpdate = _dbContext.Meals.Include(m=>m.Allergies).FirstOrDefault(m=>m.MealId == editMealAllergiesForm.MealId); 
+            if (ModelState.IsValid)
+            {
+                var mealToUpdate = _dbContext.Meals.Include(m => m.Allergies).FirstOrDefault(m => m.MealId == editMealAllergiesForm.MealId);
                 var allAllergies = _dbContext.Allergies.ToList();
-                if(mealToUpdate == null)
+                if (mealToUpdate == null)
                 {
                     return NotFound(new { message = "meal to edit is not found", data = editMealAllergiesForm });
                 }
@@ -488,11 +497,11 @@ namespace ramenHouse.Controllers
                 }
                 {
                     mealToUpdate.Allergies.Clear();
-                    foreach(var allergyId in editMealAllergiesForm.AllergyIds)
+                    foreach (var allergyId in editMealAllergiesForm.AllergyIds)
                     {
                         var parsedAllergyId = int.Parse(allergyId);
                         var allergyToAdd = allAllergies.Where(a => a.AllergyId == parsedAllergyId).ToList()?[0];
-                        if(allergyToAdd != null)
+                        if (allergyToAdd != null)
                         {
                             mealToUpdate.Allergies.Add(allergyToAdd);
                         }
@@ -500,7 +509,7 @@ namespace ramenHouse.Controllers
                     _dbContext.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                
+
             }
             else
             {
@@ -512,18 +521,48 @@ namespace ramenHouse.Controllers
         [HttpPost]
         public async Task<IActionResult> cleanAllMeals()
         {
-
-            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM AllergyMeal");
-            int mealsDeleted = await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM Meals");
-
-            return Ok(new
+            if (User?.Identity?.IsAuthenticated == true)
             {
-                success = true,
-                message = "Database cleaned successfully",
-                deletedMeals = mealsDeleted
-            });
-        }
+                var email = User.Claims.FirstOrDefault(c => c.Type == "Email")?.Value;
+                if (email == "cypress@email.com")
+                {
+                    using var transaction = await _dbContext.Database.BeginTransactionAsync();
+                    try
+                    {
+                        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM AllergyMeal");
+                        int mealsDeleted = await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM Meals");
 
+                        // Delete images before committing DB transaction
+                        string imageFolderPath = Path.Combine(_env.WebRootPath, _config["imgStoragePath"]);
+                        if (Directory.Exists(imageFolderPath))
+                        {
+                            foreach (var file in Directory.GetFiles(imageFolderPath))
+                            {
+                                try
+                                {
+                                    System.IO.File.Delete(file);
+                                }
+                                catch (Exception ex)
+                                {
+                                    // Use a logging framework in production
+                                    Console.WriteLine($"Could not delete file {file}: {ex.Message}");
+                                }
+                            }
+                        }
+
+                        await transaction.CommitAsync();
+                        return Ok(new { success = true, message = "All meals deleted successfully", deletedMeals = mealsDeleted });
+                    }
+                    catch
+                    {
+                        await transaction.RollbackAsync();
+                        throw;
+                    }
+                }
+            }
+
+            return Forbid("Unauthorized");
+        }
     }
 
 
